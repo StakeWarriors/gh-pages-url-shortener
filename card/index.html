@@ -73,7 +73,7 @@
             function handleAddRotation(event) {
                 event.stopPropagation()
                 if(navigator.userAgentData.mobile){
-                    toggle_a = 180
+                    toggle_a=toggle_a%360-toggle_a%180;
                 }
                 toggle_a = Number(toggle_a + 180)
                 toggle_b = (toggle_a)
