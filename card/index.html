@@ -81,9 +81,9 @@
                 if (event.ctrlKey || event.altKey) return;//Quick Escape
                 clientX=event.clientX;
                 clientY=event.clientY;
-                if(event.type=="touchmove"){
-                    clientX=event.touches.clientX;
-                    clientY=event.touches.clientY;
+                if(event.type=="touchmove"&&event.touches.length==1){
+                    clientX=event.touches[0].clientX;
+                    clientY=event.touches[0].clientY;
                 }
                 document.getElementsByClassName("floating")[0].style["transition"] = "none";
 
