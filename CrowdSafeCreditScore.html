@@ -1,0 +1,532 @@
+
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+        <!-- Web3 Script -->
+        <script>
+            contract_abi = [
+                { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "owner", "type": "address" }, { "indexed": true, "internalType": "address", "name": "spender", "type": "address" }, { "indexed": false, "internalType": "uint256", "name": "value", "type": "uint256" }], "name": "Approval", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "previousOwner", "type": "address" }, { "indexed": true, "internalType": "address", "name": "newOwner", "type": "address" }], "name": "OwnershipTransferred", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "from", "type": "address" }, { "indexed": true, "internalType": "address", "name": "to", "type": "address" }, { "indexed": false, "internalType": "uint256", "name": "value", "type": "uint256" }], "name": "Transfer", "type": "event" }, { "inputs": [{ "internalType": "address", "name": "verifiedContract", "type": "address" }], "name": "ReportSafe", "outputs": [], "stateMutability": "payable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "fraudContract", "type": "address" }], "name": "ReportScam", "outputs": [], "stateMutability": "payable", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "_version", "type": "uint256" }], "name": "__CrowdSafe_init", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "amountBan", "type": "uint256" }], "name": "_setAmountBan", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "_minimumCompensation", "type": "uint256" }], "name": "_setMinimumCompensation", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "reporterCountBan", "type": "uint256" }], "name": "_setReporterCountBan", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }, { "internalType": "address", "name": "spender", "type": "address" }], "name": "allowance", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "approve", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "account", "type": "address" }], "name": "balanceOf", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "decimals", "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "subtractedValue", "type": "uint256" }], "name": "decreaseAllowance", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "", "type": "address" }], "name": "founderMintBan", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "getReportedSafeLength", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "getReportedScamsLength", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "getSafeReportersLength", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "getScamReportersLength", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "highestSafetyAddress", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "highestSafetyAwareness", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "highestSafetyLevel", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "highestScamThreatAddress", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "highestScamThreatAwareness", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "highestScamThreatLevel", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "addedValue", "type": "uint256" }], "name": "increaseAllowance", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "minimumCompensation", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "name", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "owner", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "renounceOwnership", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "name": "reportedSafe", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "name": "reportedScams", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "", "type": "address" }], "name": "safeAwareness", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "", "type": "address" }], "name": "safeLevel", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "", "type": "address" }], "name": "safeReporterSet", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "name": "safeReporters", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "", "type": "address" }], "name": "scamReporterSet", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "name": "scamReporters", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "", "type": "address" }], "name": "scamThreatAwareness", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "", "type": "address" }], "name": "scamThreatLevel", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "symbol", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "totalSupply", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "recipient", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "transfer", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "sender", "type": "address" }, { "internalType": "address", "name": "recipient", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "transferFrom", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "newOwner", "type": "address" }], "name": "transferOwnership", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "", "type": "address" }, { "internalType": "address", "name": "", "type": "address" }], "name": "userContractSafeLevel", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "", "type": "address" }, { "internalType": "address", "name": "", "type": "address" }], "name": "userContractScamLevel", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "version", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }
+            ]
+
+            contract_address = "0x28B97a68D53cfBEa6313b588255af4F53a0A7754"
+            const NODE_URL = "https://speedy-nodes-nyc.moralis.io/8fb2d79dc07d728a3523252b/polygon/mainnet";
+            const provider = new Web3.providers.HttpProvider(NODE_URL);
+            const web3 = new Web3(provider);
+            CrowdSafe = new web3.eth.Contract(contract_abi, contract_address)
+
+            var url = new URL(window.location.href);
+            var address = url.searchParams.get("a");
+            if (address == null || address == undefined || address.length == 0) {
+            } else {
+                CrowdSafe.methods.scamThreatAwareness(address).call().then(scamAwareness => {
+                    CrowdSafe.methods.safeAwareness(address).call().then(safeAwareness => {
+                        CrowdSafe.methods.scamThreatLevel(address).call().then(scamThreatLevel => {
+                            CrowdSafe.methods.safeLevel(address).call().then(safeLevel => {
+                                document.getElementById("address").innerText = address
+                                document.getElementById("address").onclick =()=>window.location.href="https://polygonscan.com/address/"+address
+                                document.getElementById("address").title ="https://polygonscan.com/address/"+address
+
+                                document.getElementById("credit_score").innerText = safeAwareness + ":" + scamAwareness;
+                                document.getElementById("scam_score").innerText = scamThreatLevel;
+                                document.getElementById("safe_score").innerText = safeLevel;
+
+                            });
+                        });
+                    });
+                });
+
+
+                // const web3 = new Web3("https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161");
+                // console.log(web3.eth.ens.registry.)
+                // web3.eth.ens.getAddress(address).then(ens => {
+                //     document.getElementById("ens").innerText = ens;
+                // }).catch(e => {
+
+                //     console.error(e)
+                //     document.getElementById("ens").innerText = "";
+                // })
+            }
+        </script>
+        <!-- Credit Card Script -->
+        <script>
+            let toggle_a = 0
+            let toggle_b = 0
+            let save_y = 0
+            document.addEventListener('mousemove', handleMovement);
+            document.addEventListener('ontouchmove', handleMovement);
+            function handleStopPropagation(event) {
+                event.stopPropagation()
+            }
+            function handleAddRotation(event) {
+                event.stopPropagation()
+                toggle_a = Number(toggle_a + 180)
+                toggle_b = (toggle_a)
+                document.getElementsByClassName("floating")[0].style["transition"] = "0.7s";
+                document.getElementsByClassName("floating")[0].style["transform"] = "rotateX(" + save_y / 2 + "deg) rotateY(" + toggle_a + "deg)";
+            }
+            function handleMovement(event) {
+                if (event.ctrlKey || event.altKey) return;//Quick Escape
+                document.getElementsByClassName("floating")[0].style["transition"] = "none";
+
+                let card_x = getTransformValue(event.clientX, window.innerWidth, 56);
+                let card_y = getTransformValue(event.clientY, window.innerHeight, 56);
+                let shadow_x = getTransformValue(event.clientX, window.innerWidth, 20);
+                let shadow_y = getTransformValue(event.clientY, window.innerHeight, 20) / 1.5;
+                let text_shadow_x = getTransformValue(event.clientX, window.innerWidth, 28);
+                let text_shadow_y = getTransformValue(event.clientY, window.innerHeight, 28) / 1.5;
+                toggle_a = (card_x * 2.5 + toggle_b)
+                save_y = card_y
+                document.getElementsByClassName("floating")[0].style["transform"] = "rotateX(" + card_y / 2 + "deg) rotateY(" + toggle_a + "deg)";
+                blueElements = document.getElementsByClassName("blue");
+                blueElements[0].style["background"]=
+                `radial-gradient(farthest-corner at ${card_x*40}px -1500px, #284867 10%,#4684c1 40%,#57a0e8 55%, #4684c1 65%, #0b0a1b)`;                
+                greyElements = document.getElementsByClassName("grey");
+                greyElements[0].style["background"]=
+                    `radial-gradient(farthest-corner at ${card_x*40+180}px -1500px, #666 10%,#999 40%,#aaa 55%, #999 65%, #666)`; 
+
+                svgElements = document.getElementsByClassName("svg");
+                for (svgElement of svgElements) {
+                    svgElement.style.filter = "drop-shadow(" + -shadow_x + "px " + shadow_y + "px 4px rgba(0, 0, 0, .3))";
+                }
+                textElements = document.getElementsByClassName("text-shadow");
+                for (textElement of textElements) {
+                    textElement.style["text-shadow"] = -text_shadow_x + "px " + text_shadow_y + "px 6px rgba(0, 0, 0, .7)";
+                }
+            }
+            function getTransformValue(v1, v2, value) {
+                return (v1 / v2 * value - value / 2);
+            }
+        </script>
+    
+        <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+        <link rel="stylesheet" href="https://pattern.kivan-works.com/fonts/kredit.css">
+        <style>
+            * {
+                background-repeat: no-repeat;
+            }
+    
+            html {
+                height: 100%;
+                width: 100%;
+                overflow: hidden;
+            }
+    
+            footer {
+                position: fixed;
+                bottom: 0;
+                font-size: 1.25rem;
+            }
+    
+            footer .f-right {
+                right: 16px;
+                bottom: 16px;
+                position: fixed;
+            }
+    
+            footer .f-left {
+                position: fixed;
+                bottom: 16px;
+                left: 16px;
+            }
+    
+            footer .f-left img {
+                cursor: pointer;
+                width: 36px;
+                height: 36px;
+            }
+            .grey{
+
+                cursor: help;
+                border-radius: 20px;
+                background: linear-gradient(125deg, #999, #dadada);
+            }
+
+            #address{
+                cursor: pointer;
+            }
+     
+            body {
+                height: 100%;
+                display: flex;
+                background: linear-gradient(125deg, #fbd7e5, #bdf4fa);
+            }
+    
+            .active .floating:before {
+                opacity: 1;
+                transition: 500ms;
+            }
+    
+            .floating:before {
+                font-family: "Quicksand";
+                font-weight: bold;
+                content: "Keep Moving Your Mouse!";
+                width: 100%;
+                text-align: center;
+                font-size: 2rem;
+                position: absolute;
+                top: -70px;
+                opacity: 0;
+                transition: 300ms;
+                -webkit-text-fill-color: transparent;
+            }
+    
+            .floating {
+                font-family: Inconsolata;
+                margin: auto;
+                width: 453px;
+                height: 280px;
+                font-size: 18px;
+                transform-style: preserve-3d;
+                transform-origin: 50% 50%;
+    
+            }
+    
+            .onclick-flip {
+                cursor: help;
+            }
+
+            .perspective img.logo-icon{
+                width: 96;
+                height: 96px;
+                margin-top: 5%;
+                margin-left: 5%;
+            }
+
+            .perspective img.logo.svg {
+                transform: translateZ(17px);
+                height: 90px;
+                width: 270px;
+                margin: 42px;
+                margin-left:150px;
+            }
+    
+            .chips {
+                position: absolute;
+                margin-top: 180px;
+                margin-left: 100px;
+                height: 43px;
+                width: 47px;
+                transform: translateZ(18px) scale(2.25, 2.25);
+                background-repeat: no-repeat;
+                background-image: url("data:image/svg+xml;charset=utf8,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='50px' x='0px' y='0px' viewBox='0 0 40 40' style='enable-background:new 0 0 40 40;' xml:space='preserve'%3E%3Cg id='surface1'%3E%3Cpath fill='%23F5CE85' d='M8.9,34.5c-6.4,0.1-6.4,0.1-6.4-6.4V11.9c0-3.5-0.1-6.4,3.4-6.4h25.3c6.4,0,6.4,0,6.4,6.4v16.3 c0,6.4,0,6.4-6.4,6.4L8.9,34.5z'/%3E%3Cpath fill='%23967A44' d='M31.1,6C37,6,37,6,37,11.9v16.3c0,5.9,0,5.9-5.9,5.9H8.9c-5.9,0-5.9,0-5.9-6V11.9C3,8.2,2.7,6,6,6H31.1 M31.1,5H9.2C2.3,5,2,5,2,11.9v16.3C2,35,2,35,8.9,35h22.3c6.9-0.1,6.9-0.1,6.9-6.9V11.9C38.1,5,38.1,5,31.1,5z'/%3E%3Cpath fill='%23967A44' d='M29,35c-3.3,0-6-2.7-6-6s2.7-6,6-6h8.5v1H29c-2.8,0-5,2.2-5,5s2.2,5,5,5V35z'/%3E%3Cpath fill='%23967A44' d='M11,35v-1c2.8,0,5-2.2,5-5s-2.2-5-5-5H2.5v-1H11c3.3,0,6,2.7,6,6S14.3,35,11,35z'/%3E%3Cpath fill='%23967A44' d='M37.5,17H27c-2.2,0-4-1.8-4-4s1.8-4,4-4h2.1v1H27c-1.7,0-3,1.3-3,3s1.3,3,3,3h10.5V17z'/%3E%3Cpath fill='%23967A44' d='M28,16h1v7.5h-1V16z'/%3E%3Cpath fill='%23967A44' d='M13,17H2.5v-1H13c1.7,0,3-1.3,3-3s-1.3-3-3-3h-2.1V9H13c2.2,0,4,1.8,4,4S15.2,17,13,17z'/%3E%3Cpath fill='%23967A44' d='M11,16h1v7.5h-1V16z'/%3E%3C/g%3E%3C/svg%3E");
+            }
+    
+            .paywave {
+                transform: translateZ(20px);
+                float: right;
+                position: absolute;
+                margin: 45px 5px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5));
+                filter: drop-shadow(-6.4px 6.2px 8px rgba(0, 0, 0, 0.6));
+                height: 500px;
+                width: 100px;
+                background-repeat: no-repeat;
+                background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='112' viewBox='0 0 46 56'%3E%3Ctitle%3EContactlessIndicator 000%3C/title%3E%3Cpath fill='none' stroke='%23FFF' stroke-width='6' stroke-linecap='round' d='m35,3a50,50 0 0,1 0,50M24,8.5a39,39 0 0,1 0,39M13.5,13.55a28.2,28.5 0 0,1 0,28.5M3,19a18,17 0 0,1 0,18'/%3E%3C/svg%3E");
+            }
+    
+            .card_no {
+                transform: translateZ(20px);
+                margin-left: 20px;
+                transform-origin: 50% 50%;
+                font-family: kredit-front;
+                font-weight: bold;
+                font-size: 2.1rem;
+                color: #fff;
+                position: absolute;
+                letter-spacing: -1px;
+                bottom: 200px;
+                text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+                text-shadow: -9px 8.7px 6px rgba(0, 0, 0, 0.8);
+                width: calc(100% - 3.5rem);
+                text-align: center;
+            }
+    
+            .valid {
+                position: absolute;
+                margin-left: 20%;
+                margin-top: 45%;
+                color: #fff;
+                font-size: 1rem;
+                text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+                text-shadow: -9px 8.7px 6px rgba(0, 0, 0, 0.8);
+                transform: translateZ(20px);
+            }
+    
+            .valid_date {
+                position: absolute;
+                font-family: kredit-front;
+                font-size: 2rem;
+                margin-left: 35%;
+                margin-top: 45%;
+                font-weight: bold;
+                color: #fff;
+                text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+                text-shadow: -9px 8.7px 6px rgba(0, 0, 0, 0.8);
+                transform: translateZ(20px);
+                letter-spacing: 2px;
+            }
+    
+            .valid_ens {
+                position: absolute;
+                font-family: kredit-front;
+                font-size: 1rem;
+                margin-top: 57.5%;
+                margin-left: 5%;
+                font-weight: bold;
+                color: #fff;
+                text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+                text-shadow: -9px 8.7px 6px rgba(0, 0, 0, 0.8);
+                transform: translateZ(20px);
+                letter-spacing: 2px;
+            }
+    
+            .holder {
+                position: absolute;
+                font-family: kredit-front;
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: #fff;
+                text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+                text-shadow: -9px 8.7px 6px rgba(0, 0, 0, 0.8);
+                bottom: 25px;
+                left: 35px;
+                letter-spacing: 2px;
+                transform: translateZ(20px);
+                border-bottom: #fff solid 2px;
+                width: 75%
+            }
+    
+            .back .strip-black {
+                position: absolute;
+                top: 50px;
+                left: 0;
+                width: 100%;
+                height: 100px;
+                background: #000;
+            }
+    
+            .back .ccv {
+                position: absolute;
+                top: 225;
+                left: 0;
+                right: 0;
+                height: 80px;
+                width: 90%;
+                padding: 10px;
+                margin: 0 auto;
+                border-radius: 5px;
+                text-align: right;
+                letter-spacing: 1px;
+                color: #000;
+                text-transform: uppercase;
+    
+                background: #fff;
+                font-size: 2rem;
+                line-height: 1.25;
+            }
+            .text{
+                cursor: initial;
+            }
+    
+            .back .terms {
+                position: absolute;
+                bottom: -25px;
+                padding: 25px;
+                font-size: 1.5rem;
+                text-align: justify;
+            }
+    
+            .perspective {
+                position: relative;
+                width: 800px;
+                height: 520px;
+                transform-style: preserve-3d;
+                margin-right: 30px;
+                display: inline-block;
+                margin-left: 30%;
+            }
+    
+            .perspective img {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 800px;
+                height: 520px;
+                transform: translateZ(16px);
+            }
+    
+            .top,
+            .bottom,
+            .left,
+            .right {
+                position: absolute;
+                width: 800px;
+                height: 520px;
+    
+                display: block;
+                transition: all 1s linear;
+                overflow: hidden;
+                border-radius: 3px;
+                transform: translateZ(16px);
+            }
+    
+            .blue {
+                cursor: help;
+                border-radius: 20px;
+                background: radial-gradient(at -111.676px -1500px, rgb(40, 72, 103) 10%, rgb(70, 132, 193) 40%, rgb(87, 160, 232) 55%, rgb(70, 132, 193) 65%, rgb(11, 10, 27));
+            }
+    
+            .bluer {
+                cursor: help;
+                background: radial-gradient(#343174, #16143b);
+                border-radius: 0px;
+            }
+    
+            .left {
+                transform: rotateY(270deg) translateX(5px) translateY(15px);
+                transform-origin: center left;
+                width: 10px;
+                height: 93%;
+            }
+    
+    
+            .left2 .bluer {
+                transform: rotateY(270deg) translateZ(-12px) translateX(6px);
+                transform-origin: center left;
+                width: 10px;
+                height: 100%;
+            }
+    
+            .right {
+                transform: rotateY(90deg) translateX(-5px) translateY(15px) translateZ(786px);
+                transform-origin: right center;
+                width: 11px;
+                height: 93%;
+            }
+    
+            .right2 .bluer {
+                transform: rotateY(90deg) translateX(-7px) translateZ(775px);
+                transform-origin: right center;
+                width: 9px;
+                height: 100%;
+            }
+    
+            .top {
+                transform: rotateX(90deg) translateY(16px) translateZ(530px) translateX(10px);
+                transform-origin: bottom center;
+                height: 11px;
+                left: 0;
+                width: 97%;
+            }
+    
+    
+            .bottom {
+                transform: rotateX(90deg) translateY(16px) translateZ(-508px) translateX(15px);
+                transform-origin: bottom center;
+                height: 11px;
+                left: 0;
+                width: 97%;
+            }
+    
+            .right img {
+                width: 100%;
+                right: 0px;
+            }
+    
+            .back {
+                width: inherit;
+                height: 520px;
+                transform: translateZ(6px);
+            }
+    
+            .back>div.text {
+                transform: rotateY(180deg)
+            }
+    
+            .mastercard_icon {
+                height: 120px;
+                width: 120px;
+                float: right;
+                position: absolute;
+                right: 30px;
+                bottom: 10px;
+                transform: translateZ(20px);
+                filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.3));
+                filter: drop-shadow(-6.4px 6.2px 8px rgba(0, 0, 0, 0.6));
+                background-repeat: no-repeat;
+                z-index: -2;
+                background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI0LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAzOC40IDMzLjUiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDM4LjQgMzMuNTsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiM4MjQ3RTU7fQo8L3N0eWxlPgo8Zz4KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yOSwxMC4yYy0wLjctMC40LTEuNi0wLjQtMi40LDBMMjEsMTMuNWwtMy44LDIuMWwtNS41LDMuM2MtMC43LDAuNC0xLjYsMC40LTIuNCwwTDUsMTYuMwoJCWMtMC43LTAuNC0xLjItMS4yLTEuMi0yLjF2LTVjMC0wLjgsMC40LTEuNiwxLjItMi4xbDQuMy0yLjVjMC43LTAuNCwxLjYtMC40LDIuNCwwTDE2LDcuMmMwLjcsMC40LDEuMiwxLjIsMS4yLDIuMXYzLjNsMy44LTIuMlY3CgkJYzAtMC44LTAuNC0xLjYtMS4yLTIuMWwtOC00LjdjLTAuNy0wLjQtMS42LTAuNC0yLjQsMEwxLjIsNUMwLjQsNS40LDAsNi4yLDAsN3Y5LjRjMCwwLjgsMC40LDEuNiwxLjIsMi4xbDguMSw0LjcKCQljMC43LDAuNCwxLjYsMC40LDIuNCwwbDUuNS0zLjJsMy44LTIuMmw1LjUtMy4yYzAuNy0wLjQsMS42LTAuNCwyLjQsMGw0LjMsMi41YzAuNywwLjQsMS4yLDEuMiwxLjIsMi4xdjVjMCwwLjgtMC40LDEuNi0xLjIsMi4xCgkJTDI5LDI4LjhjLTAuNywwLjQtMS42LDAuNC0yLjQsMGwtNC4zLTIuNWMtMC43LTAuNC0xLjItMS4yLTEuMi0yLjFWMjFsLTMuOCwyLjJ2My4zYzAsMC44LDAuNCwxLjYsMS4yLDIuMWw4LjEsNC43CgkJYzAuNywwLjQsMS42LDAuNCwyLjQsMGw4LjEtNC43YzAuNy0wLjQsMS4yLTEuMiwxLjItMi4xVjE3YzAtMC44LTAuNC0xLjYtMS4yLTIuMUwyOSwxMC4yeiIvPgo8L2c+Cjwvc3ZnPgo=");
+            }
+        </style>
+    </head>
+    <body onclick="handleAddRotation(event)">
+        <div class="perspective floating">
+            <img class="blue" onclick="handleAddRotation(event)">
+            <img onclick="window.location.href='https://github.com/StakeWarriors/CrowdSafe'" src="https://github.com/StakeWarriors/CrowdSafe/blob/main/img/Crowd%20Safe%20Name.png?raw=true" class="logo svg" />
+        
+            <div class="paywave svg"></div>
+            <div class="chips svg"></div>
+            <div id="address" class="card_no text-shadow"></div>
+            <div class="valid text text-shadow"  onClick="handleStopPropagation(event)">
+                Awareness
+                <br />
+                <i>Safe:Scam</i>
+            </div>
+            <div id="credit_score" class="valid_date text-shadow text"></div>
+            <div id="ens" class="holder text text-shadow"></div>
+            <img class="logo-icon"src="https://raw.githubusercontent.com/StakeWarriors/CrowdSafe/main/img/Crowd%20Safe%20Symbol%20Transparent.png" />
+            <div onclick="handleAddRotation(event)" class="onclick-flip bottom"><img class="bluer" /></div>
+            <div onclick="handleAddRotation(event)" class="onclick-flip left"><img class="bluer" /></div>
+            <div onclick="handleAddRotation(event)" class="onclick-flip right"><img class="bluer" /></div>
+            <div onclick="handleAddRotation(event)" class="onclick-flip back">
+                <img class="grey">
+                <div class="strip-black"></div>
+                <div class="ccv text" onClick="handleStopPropagation(event)">
+                    <span id="safe_score"></span>
+                    <span>Safe Score</span><br />
+                    <span id="scam_score"></span>
+                    <span>Scam Score</span>
+                </div>
+                <div class="terms text" 
+                    onClick="handleStopPropagation(event)">
+                    <p>
+                        The information within this credit card is provided by the Crowd Safe smart contract at this polygon address
+                        <a href="https://polygonscan.com/address/0x28B97a68D53cfBEa6313b588255af4F53a0A7754" title="https://polygonscan.com/address/0x28B97a68D53cfBEa6313b588255af4F53a0A7754" style="color:peachpuff;">
+                            0x28B97a68D53cfBEa6313b588255af4F53a0A7754
+                        </a>
+                    </p>
+                    <p>
+                        Information provided herein is subject to change with accordance to such contract and affiliates.
+                    </p>
+                </div>
+            </div>
+            <div onclick="handleAddRotation(event)" class="onclick-flip top"><img class="bluer"></div>
+            <div onclick="handleAddRotation(event)" class="onclick-flip left2"><img class="bluer"></div>
+            <div onclick="handleAddRotation(event)" class="onclick-flip right2"><img class="bluer"></div>
+            <div onclick="handleAddRotation(event)" class="onclick-flip mastercard_icon svg" title="Polygon Mainnet"></div>
+        
+        </div>
+        <footer>
+            <span class="f-left">
+                <img class="onclick-flip" title="'https://github.com/StakeWarriors/CrowdSafe"
+                     onclick="window.location.href='https://github.com/StakeWarriors/CrowdSafe'" 
+                     src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                     title="https://cdn-icons-png.flaticon.com/512/25/25231.png" />
+                <img class="onclick-flip" title="'https://twitter.com/StakeWarriors" onclick="window.location.href='https://twitter.com/StakeWarriors'" 
+                     src="https://cdn-icons-png.flaticon.com/512/1051/1051382.png"
+                     title="https://cdn-icons-png.flaticon.com/512/1051/1051382.png" />
+                <img class="onclick-flip" onclick="window.location.href='https://medium.com/@StakeWarriors/the-death-of-scam-coins-a7935d72d227'"
+                     title='https://medium.com/@StakeWarriors/the-death-of-scam-coins-a7935d72d227'
+                     src="https://cdn.iconscout.com/icon/free/png-256/medium-logo-3610097-3014862.png"
+                     title="https://cdn.iconscout.com/icon/free/png-256/medium-logo-3610097-3014862.png" />
+            </span>
+            <span class="f-right">
+                Hold <code>Alt </code> or <code>Ctrl </code> to freeze the credit card from movement
+            </span>
+        </footer>
+    </body>
+</html>
