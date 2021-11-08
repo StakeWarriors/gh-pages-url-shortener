@@ -34,7 +34,10 @@
           (location.port ? ":" + location.port : "") +
           "/" +
           location.pathname.split("/")[PATH_SEGMENTS_TO_SKIP];
-
+        
+        console.log("GET", GITHUB_ISSUES_LINK + issueNumber);
+        console.log(homepage)
+        return;
         var xhr = new XMLHttpRequest();
 
         xhr.onload = function () {
@@ -70,10 +73,8 @@
         xhr.onerror = function () {
           location.replace(homepage);
         };
-//         xhr.open("GET", GITHUB_ISSUES_LINK + issueNumber);
-//         xhr.send();
-        console.log("GET", GITHUB_ISSUES_LINK + issueNumber);
-        console.log(homepage)
+        xhr.open("GET", GITHUB_ISSUES_LINK + issueNumber);
+        xhr.send();
       }
 
       redirect();
