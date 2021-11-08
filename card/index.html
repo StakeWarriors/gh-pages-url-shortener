@@ -41,24 +41,24 @@
                                 document.getElementById("scam_score").innerText = scamThreatLevel;
                                 document.getElementById("safe_score").innerText = safeLevel;
 
-                                document.getElementsByClassName("paywave").classList.add("lit");
+                                document.getElementsByClassName("paywave")[0].classList.add("lit");
                             });
                         });
                     });
                 });
-
-
+                
+                
                 // const web3 = new Web3("https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161");
                 // console.log(web3.eth.ens.registry.)
                 // web3.eth.ens.getAddress(address).then(ens => {
-                //     document.getElementById("ens").innerText = ens;
-                // }).catch(e => {
-
-                //     console.error(e)
-                //     document.getElementById("ens").innerText = "";
-                // })
-            }
-        </script>
+                    //     document.getElementById("ens").innerText = ens;
+                    // }).catch(e => {
+                        
+                        //     console.error(e)
+                        //     document.getElementById("ens").innerText = "";
+                        // })
+                    }
+                    </script>
         <!-- End Web3 Script -->
         <!-- Credit Card Script -->
         <script>
@@ -72,6 +72,9 @@
             }
             function handleAddRotation(event) {
                 event.stopPropagation()
+                if(navigator.userAgentData.mobile){
+                    toggle_a = 180
+                }
                 toggle_a = Number(toggle_a + 180)
                 toggle_b = (toggle_a)
                 document.getElementsByClassName("floating")[0].style["transition"] = "0.7s";
@@ -86,7 +89,7 @@
                     clientY=event.touches[0].clientY;
                 }
                 document.getElementsByClassName("floating")[0].style["transition"] = "none";
-
+                
                 let card_x = getTransformValue(clientX, window.innerWidth, 56);
                 let card_y = getTransformValue(clientY, window.innerHeight, 56);
                 let shadow_x = getTransformValue(clientX, window.innerWidth, 20);
@@ -101,8 +104,8 @@
                 `radial-gradient(farthest-corner at ${card_x*40}px -1500px, #284867 10%,#4684c1 40%,#57a0e8 55%, #4684c1 65%, #0b0a1b)`;                
                 greyElements = document.getElementsByClassName("grey");
                 greyElements[0].style["background"]=
-                    `radial-gradient(farthest-corner at ${card_x*40+180}px -1500px, #666 10%,#999 40%,#aaa 55%, #999 65%, #666)`; 
-
+                `radial-gradient(farthest-corner at ${card_x*40+180}px -1500px, #666 10%,#999 40%,#aaa 55%, #999 65%, #666)`; 
+                
                 svgElements = document.getElementsByClassName("svg");
                 for (svgElement of svgElements) {
                     svgElement.style.filter = "drop-shadow(" + -shadow_x + "px " + shadow_y + "px 4px rgba(0, 0, 0, .3))";
@@ -111,6 +114,7 @@
                 for (textElement of textElements) {
                     textElement.style["text-shadow"] = -text_shadow_x + "px " + text_shadow_y + "px 6px rgba(0, 0, 0, .7)";
                 }
+                
             }
             function getTransformValue(v1, v2, value) {
                 return (v1 / v2 * value - value / 2);
@@ -543,9 +547,17 @@
                      src="https://cdn.iconscout.com/icon/free/png-256/medium-logo-3610097-3014862.png"
                      title="https://cdn.iconscout.com/icon/free/png-256/medium-logo-3610097-3014862.png" />
             </span>
-            <span class="f-right">
-                Hold <code>Alt </code> or <code>Ctrl </code> to freeze the credit card from movement
-            </span>
+            <p class="f-right">
+                Flip the card to see the back side details
+            </p>
+            <span class="f-right interactions"></span>
         </footer>
     </body>
+    <script>
+        if(!navigator.userAgentData.mobile){
+            document.getElementsByClassName("interactions")[0].innerHTML=`Hold <code>Alt </code> or <code>Ctrl </code> to freeze the credit card from movement`
+        }else{
+            document.getElementsByClassName("interactions")[0].innerHTML=`Touch to move the credit card`
+        }
+    </script>
 </html>
