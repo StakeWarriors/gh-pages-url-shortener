@@ -91,10 +91,8 @@
                     clientX=event.touches[0].clientX;
                     clientY=event.touches[0].clientY;
                     factor=5
-                    document.getElementsByClassName("floating")[0].style["transition"] = "0.1s";
-                }else{
-                    document.getElementsByClassName("floating")[0].style["transition"] = "none";
                 }
+                document.getElementsByClassName("floating")[0].style["transition"] = "none";
                 
                 let card_x = getTransformValue(clientX, window.innerWidth, 56);
                 let card_y = getTransformValue(clientY, window.innerHeight, 56);
