@@ -79,14 +79,20 @@
             }
             function handleMovement(event) {
                 if (event.ctrlKey || event.altKey) return;//Quick Escape
+                clientX=event.clientX;
+                clientY=event.clientY;
+                if(event.type=="touchmove"){
+                    clientX=event.touches.clientX;
+                    clientY=event.touches.clientY;
+                }
                 document.getElementsByClassName("floating")[0].style["transition"] = "none";
 
-                let card_x = getTransformValue(event.clientX, window.innerWidth, 56);
-                let card_y = getTransformValue(event.clientY, window.innerHeight, 56);
-                let shadow_x = getTransformValue(event.clientX, window.innerWidth, 20);
-                let shadow_y = getTransformValue(event.clientY, window.innerHeight, 20) / 1.5;
-                let text_shadow_x = getTransformValue(event.clientX, window.innerWidth, 28);
-                let text_shadow_y = getTransformValue(event.clientY, window.innerHeight, 28) / 1.5;
+                let card_x = getTransformValue(clientX, window.innerWidth, 56);
+                let card_y = getTransformValue(clientY, window.innerHeight, 56);
+                let shadow_x = getTransformValue(clientX, window.innerWidth, 20);
+                let shadow_y = getTransformValue(clientY, window.innerHeight, 20) / 1.5;
+                let text_shadow_x = getTransformValue(clientX, window.innerWidth, 28);
+                let text_shadow_y = getTransformValue(clientY, window.innerHeight, 28) / 1.5;
                 toggle_a = (card_x * 2.5 + toggle_b)
                 save_y = card_y
                 document.getElementsByClassName("floating")[0].style["transform"] = "rotateX(" + card_y / 2 + "deg) rotateY(" + toggle_a + "deg)";
