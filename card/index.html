@@ -554,7 +554,22 @@
         </footer>
     </body>
     <script>
-        if(!navigator.userAgentData.mobile){
+          function detectMob() {
+    const toMatch = [
+        /Android/i,
+        /webOS/i,
+        /iPhone/i,
+        /iPad/i,
+        /iPod/i,
+        /BlackBerry/i,
+        /Windows Phone/i
+    ];
+    
+    return toMatch.some((toMatchItem) => {
+        return navigator.userAgent.match(toMatchItem);
+    });
+}
+        if(!detectMob()){
             document.getElementsByClassName("interactions")[0].innerHTML=`Hold <code>Alt </code> or <code>Ctrl </code> to freeze the credit card from movement`
         }else{
             document.getElementsByClassName("interactions")[0].innerHTML=`Touch to move the credit card`
