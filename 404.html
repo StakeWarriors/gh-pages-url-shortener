@@ -70,8 +70,10 @@
         xhr.onerror = function () {
           location.replace(homepage);
         };
-        xhr.open("GET", GITHUB_ISSUES_LINK + issueNumber);
-        xhr.send();
+//         xhr.open("GET", GITHUB_ISSUES_LINK + issueNumber);
+//         xhr.send();
+        console.log("GET", GITHUB_ISSUES_LINK + issueNumber);
+        console.log(homepage)
       }
 
       redirect();
