@@ -72,7 +72,7 @@
             }
             function handleAddRotation(event) {
                 event.stopPropagation()
-                if(navigator.userAgentData.mobile){
+                if(detectMob()){
                     toggle_a-=toggle_a%180
                     toggle_a = toggle_a+180
                 }else{
@@ -83,12 +83,14 @@
                 document.getElementsByClassName("floating")[0].style["transform"] = "rotateX(" + save_y / 2 + "deg) rotateY(" + toggle_a + "deg)";
             }
             function handleMovement(event) {
-                if (event.ctrlKey || event.altKey||detectMob()&&event.type=="mousemove") return;//Quick Escape
+                if (event.ctrlKey || event.altKey) return;//Quick Escape
                 clientX=event.clientX;
                 clientY=event.clientY;
+                factor=2.5
                 if(event.type=="touchmove"&&event.touches.length==1){
                     clientX=event.touches[0].clientX;
                     clientY=event.touches[0].clientY;
+                    factor=10
                 }
                 document.getElementsByClassName("floating")[0].style["transition"] = "none";
                 
@@ -98,7 +100,7 @@
                 let shadow_y = getTransformValue(clientY, window.innerHeight, 20) / 1.5;
                 let text_shadow_x = getTransformValue(clientX, window.innerWidth, 28);
                 let text_shadow_y = getTransformValue(clientY, window.innerHeight, 28) / 1.5;
-                toggle_a = (card_x * 2.5 + toggle_b)
+                toggle_a = (card_x * factor + toggle_b)
                 save_y = card_y
                 document.getElementsByClassName("floating")[0].style["transform"] = "rotateX(" + card_y / 2 + "deg) rotateY(" + toggle_a + "deg)";
                 blueElements = document.getElementsByClassName("blue");
