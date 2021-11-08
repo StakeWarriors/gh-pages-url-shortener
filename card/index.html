@@ -73,15 +73,17 @@
             function handleAddRotation(event) {
                 event.stopPropagation()
                 if(navigator.userAgentData.mobile){
-                    toggle_a=toggle_a%360-toggle_a%180;
+                    toggle_a-=toggle_a%180
+                    toggle_a = toggle_a+180
+                }else{
+                    toggle_a = Number(toggle_a + 180)
                 }
-                toggle_a = Number(toggle_a + 180)
                 toggle_b = (toggle_a)
                 document.getElementsByClassName("floating")[0].style["transition"] = "0.7s";
                 document.getElementsByClassName("floating")[0].style["transform"] = "rotateX(" + save_y / 2 + "deg) rotateY(" + toggle_a + "deg)";
             }
             function handleMovement(event) {
-                if (event.ctrlKey || event.altKey) return;//Quick Escape
+                if (event.ctrlKey || event.altKey||detectMob()&&event.type=="mousemove") return;//Quick Escape
                 clientX=event.clientX;
                 clientY=event.clientY;
                 if(event.type=="touchmove"&&event.touches.length==1){
