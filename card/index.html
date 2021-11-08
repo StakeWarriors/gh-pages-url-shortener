@@ -96,10 +96,10 @@
                 
                 let card_x = getTransformValue(clientX, window.innerWidth, 56);
                 let card_y = getTransformValue(clientY, window.innerHeight, 56);
-                let shadow_x = getTransformValue(clientX, window.innerWidth, 20);
-                let shadow_y = getTransformValue(clientY, window.innerHeight, 20) / 1.5;
-                let text_shadow_x = getTransformValue(clientX, window.innerWidth, 28);
-                let text_shadow_y = getTransformValue(clientY, window.innerHeight, 28) / 1.5;
+                let shadow_x = getTransformValue(clientX, window.innerWidth, 20)/ 2.5;
+                let shadow_y = getTransformValue(clientY, window.innerHeight, 20) /4.5;
+                let text_shadow_x = getTransformValue(clientX, window.innerWidth, 28)/1.5;
+                let text_shadow_y = getTransformValue(clientY, window.innerHeight, 28) / 3;
                 toggle_a = (card_x * factor + toggle_b)
                 save_y = card_y
                 document.getElementsByClassName("floating")[0].style["transform"] = "rotateX(" + card_y / 2 + "deg) rotateY(" + toggle_a + "deg)";
@@ -112,11 +112,11 @@
                 
                 svgElements = document.getElementsByClassName("svg");
                 for (svgElement of svgElements) {
-                    svgElement.style.filter = "drop-shadow(" + -shadow_x + "px " + shadow_y + "px 4px rgba(0, 0, 0, .3))";
+                    svgElement.style.filter = "drop-shadow(" + -shadow_x + "px " + shadow_y*-1 + "px 1px rgba(0, 0, 0, .3))";
                 }
                 textElements = document.getElementsByClassName("text-shadow");
                 for (textElement of textElements) {
-                    textElement.style["text-shadow"] = -text_shadow_x + "px " + text_shadow_y + "px 6px rgba(0, 0, 0, .7)";
+                    textElement.style["text-shadow"] = -text_shadow_x + "px " + text_shadow_y*-1 + "px 3px rgba(0, 0, 0, .7)";
                 }
                 
             }
@@ -495,7 +495,7 @@
             <img class="blue" onclick="handleAddRotation(event)">
             <img onclick="window.location.href='https://github.com/StakeWarriors/CrowdSafe'" src="https://github.com/StakeWarriors/CrowdSafe/blob/main/img/Crowd%20Safe%20Name.png?raw=true" class="logo svg" />
         
-            <div class="paywave svg"></div>
+            <div class="paywave"></div>
             <div class="chips svg"></div>
             <div id="address" class="card_no text-shadow"></div>
             <div class="valid text text-shadow"  onClick="handleStopPropagation(event)">
