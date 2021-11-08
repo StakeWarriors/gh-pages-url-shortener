@@ -66,7 +66,7 @@
             let toggle_b = 0
             let save_y = 0
             document.addEventListener('mousemove', handleMovement);
-            document.addEventListener('ontouchmove', handleMovement);
+            document.addEventListener('touchmove', handleMovement);
             function handleStopPropagation(event) {
                 event.stopPropagation()
             }
@@ -360,9 +360,7 @@
                 width: 800px;
                 height: 520px;
                 transform-style: preserve-3d;
-                margin-right: 30px;
                 display: inline-block;
-                margin-left: 30%;
             }
     
             .perspective img {
