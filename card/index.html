@@ -83,7 +83,7 @@
                 document.getElementsByClassName("floating")[0].style["transform"] = "rotateX(" + save_y / 2 + "deg) rotateY(" + toggle_a + "deg)";
             }
             function handleMovement(event) {
-                if (event.ctrlKey || event.altKey||detectMob()&&event.type=="mousemove") return;//Quick Escape
+                if (event.ctrlKey || event.altKey) return;//Quick Escape
                 clientX=event.clientX;
                 clientY=event.clientY;
                 if(event.type=="touchmove"&&event.touches.length==1){
