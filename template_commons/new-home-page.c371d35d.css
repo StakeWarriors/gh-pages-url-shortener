@@ -4131,6 +4131,8 @@ ws-block[src*="/cover-with-plain-text/"] .ws-m-decoration img {
 @media (max-height: 699px) {
   ws-block[src*="/cover-with-plain-text/"] .ws-m-decoration {
     min-width: auto;
+    top: 175px;
+    position: relative;
   }
 }
 ws-block[src*="/cover-with-plain-text/"]
