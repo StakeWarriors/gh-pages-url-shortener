@@ -136,6 +136,16 @@
             textDecoration: none;
         }
     </style>
+    <script>
+        function dismissTerms(event){
+            banner=document.getElementById("ws-cookie-banner").style;
+            banner["transform"]="translateY(-60px)";
+            banner["transition"]= "all .5s ease";
+            setTimeout(()=>{
+                banner.height="15px";
+            },700)
+        }
+    </script>
 </head>
 <!--
         onunload event disables FireFox bfcaching
@@ -154,7 +164,7 @@
         <ws-global src="/ws/globals/header-code/index.html">
             <div id="ws-site-header-wrapper">
                 <div id="ws-site-header-code"></div>
-                <div id="ws-cookie-banner">
+                <div id="ws-cookie-banner" >
                     <ws-cookie-banner style="display: flex;">
 
                         <style>
@@ -232,7 +242,7 @@
                         </style>
                         <p class="cookie-banner-description">This website uses cookies to deliver the best possible user experience. You can read more about this in our <a
                                 href="https://stakewarriors.app/policy">Privacy Policy</a>.</p>
-                        <div class="cookie-banner-accept-button">I accept</div>
+                        <div class="cookie-banner-accept-button" onclick="dismissTerms(event)">I accept</div>
                     </ws-cookie-banner>
                 </div>
             </div>
@@ -327,8 +337,8 @@
                             <ws-column class="col-md-10">
                                 <div class="ws-m-block-title-770">
                                     <ws-text class="wow fadeIn" slot="block-title" style="visibility: visible; animation-name: fadeIn;">
-                                        <h2>Report suspicious or honorable activity with CrowdSafe's VERIFY Token</h2>
-                                        <h2 class="heading-5">Yola has everything you need to take your business online</h2>
+                                        <h2>Use CrowdSafe to gain VERIFY tokens</h2>
+                                        <h2 class="heading-5">Get rewarded for reporting suspicious wallets, smart contracts, or tokens; also get rewards for validating safe wallets, contracts, or tokens. </h2>
                                     </ws-text>
                                 </div>
                                 <div class="ws-m-button-group-centered">
