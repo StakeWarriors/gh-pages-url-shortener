@@ -40,6 +40,10 @@
             opacity: 50%;
         }
 
+        .block-title{
+            margin-top: 10%;
+        }
+
         a.disabled {
             pointer-events: none;
             cursor: default;
@@ -69,13 +73,19 @@
         }
 
         .caret {
-            width: 125px;
-            height: 50px;
+            width:20vw;
+            height: 6vh;
             filter: invert(1);
             display: block;
-            margin-left: 50%;
-            margin-top: 5%;
             position: absolute;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+            text-align: center;
+            margin-top: 5%;
+            margin-bottom: 5%;
+
         }
     </style>
 
@@ -299,24 +309,26 @@
             <ws-block content-alignment="left" fullscreen="" id="ws-block-cover-with-plain-text-bg-image-wI6XOdtv" src="/ws/block-templates/cover-with-plain-text/index.html" surfaces="ws-dark-0">
                 <section class="ws-section ws-surface ws-dark-0" data-surface="0">
                     <div class="ws-container">
-                        <div class="ws-m-decoration">
-                            <img class="card-image front" src="./assets/Credit Scorecard Front.jpg" />
-                            <img class="card-image" src="./assets/Credit Scorecard Back.jpg" />
-                        </div>
-                        <div class="ws-m-block-title-570">
-                            <ws-text slot="block-title">
-                                <h1>CrowdSafe<a style="font-size:2rem;">™</a> Credit Scorecard has Launched!</h1>
-                                <p class="heading-4">Get to rating the credit worthiness of blockchain projects</p>
-                            </ws-text>
-                        </div>
-                        <div class="ws-m-button-group" style="width: 250px;">
-        
-                            <ws-button slot="block-primary-button">
-                                <a href="https://stakewarriors.app/card?a=0x843E074B738b0f7f35Da89F35c2292760F882fe6" data-track-event="CrowdSafe Credit Scorecard" data-track-label="Hero Click">
-                                    Check It Out
-                                </a>
-                            </ws-button>
-        
+                        <div>
+                    
+                            <div class="ws-m-block-title-570">
+                                <ws-text slot="block-title" class="block-title">
+                                    <h1>CrowdSafe<a style="font-size:2rem;">™</a> Credit Scorecard has Launched!</h1>
+                                    <p class="heading-4">Get to rating the credit worthiness of blockchain projects</p>
+                                </ws-text>
+                            </div>
+                            <div class="ws-m-button-group" style="width: 250px;">
+                    
+                                <ws-button slot="block-primary-button">
+                                    <a href="https://stakewarriors.app/card?a=0x843E074B738b0f7f35Da89F35c2292760F882fe6" data-track-event="CrowdSafe Credit Scorecard" data-track-label="Hero Click">
+                                        Check It Out
+                                    </a>
+                                </ws-button>
+                            </div>
+                            <div class="ws-m-decoration">
+                                <img class="card-image front" src="./assets/Credit Scorecard Front.jpg" />
+                                <img class="card-image" src="./assets/Credit Scorecard Back.jpg" />
+                            </div>
                         </div>
                     </div>
                     <div class="caret-holder">
