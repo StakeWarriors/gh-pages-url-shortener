@@ -1,0 +1,2 @@
+!function(){"use strict";var t=window.document.body.getAttribute("data-sentry"),e=window.document.body.getAttribute("data-user-id");t&&Raven.config(t).install(),t&&e&&Raven.setUser({id:e})}();
+//# sourceMappingURL=raven-config.e86c438f.js.map
