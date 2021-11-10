@@ -566,28 +566,24 @@
                      src="https://cdn.iconscout.com/icon/free/png-256/medium-logo-3610097-3014862.png"
                      title="https://cdn.iconscout.com/icon/free/png-256/medium-logo-3610097-3014862.png" />
             </span>
-            <p class="f-right">
-                Flip the card to see the back side details
-            </p>
+            <p class="f-right">Flip the card to see the back side details</p>
             <span class="f-right interactions"></span>
         </footer>
     </body>
     <script>
-          function detectMob() {
-    const toMatch = [
-        /Android/i,
-        /webOS/i,
-        /iPhone/i,
-        /iPad/i,
-        /iPod/i,
-        /BlackBerry/i,
-        /Windows Phone/i
-    ];
-    
-    return toMatch.some((toMatchItem) => {
-        return navigator.userAgent.match(toMatchItem);
-    });
-}
+        function detectMob() {
+        const toMatch = [
+            /Android/i,
+            /webOS/i,
+            /iPhone/i,
+            /iPad/i,
+            /iPod/i,
+            /BlackBerry/i,
+            /Windows Phone/i
+        ];
+        return toMatch.some((toMatchItem) => {
+            return navigator.userAgent.match(toMatchItem);
+        });
         if(!detectMob()){
             document.getElementsByClassName("interactions")[0].innerHTML=`Hold <code>Alt </code> or <code>Ctrl </code> to freeze the credit card from movement`
         }else{

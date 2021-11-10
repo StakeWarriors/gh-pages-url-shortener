@@ -83,7 +83,30 @@
             text-align: center;
             margin-top: 5%;
             margin-bottom: 5%;
+        }
 
+        footer.ws-surface.ws-dark-0{
+            padding-bottom: 0px;
+        }
+
+        ws-block footer  img{
+            width: 30px;
+            height: 30px;
+            margin-top: -6px;
+        }
+        ws-block footer img.medium {
+            width: 36px;
+            height: 36px;
+            margin-top: -8px;
+        }
+        footer svg{
+            width: 50px;   
+            height: 50px;   
+            margin-top: -15px;
+            stroke: black;
+        }
+        footer .ws-container{
+            margin-bottom: 0px;
         }
     </style>
 
@@ -562,18 +585,21 @@
                     </div>
                 </section>
             </ws-block>
-            <ws-block id="ws-block-partners-6rg5boMc" src="/ws/block-templates/partners-clients-sponsors-awards/index.html" surfaces="ws-secondary-0">
+             -->
+            <ws-block id="ws-block-partners-6rg5boMc"  surfaces="ws-secondary-0">
                 <section class="ws-section ws-surface ws-secondary-0" data-surface="0" data-ws-slots="block-title block-logos">
                     <div class="ws-container">
                         <div class="ws-m-block-title-770">
                             <ws-text slot="block-title">
-                                <h2>Over <strong>12 million</strong> users worldwide</h2>
-                                <p class="heading-6">Featured in</p>
+                                <h2>Long Term Development Plans</h2>
+                                <p class="heading-6">Current Road Map for StakeWars</p>
                             </ws-text>
+                            <img src="StakeWarriors.app/assets/Stake%20Wars%20Road%20Map%20v1.gif"></img>
                         </div>
                     </div>
                 </section>
             </ws-block>
+            <!--  
             <ws-block content-alignment="left" id="ws-block-cta-with-extra-content-bg-image-g8XAy2V1" src="/ws/block-templates/cta-with-extra-content/index.html" surfaces="ws-dark-0">
                 <section class="ws-section ws-surface ws-dark-0" data-surface="0" data-ws-slots="block-background-image block-decoration block-title block-primary-button block-secondary-button">
                     <div class="ws-m-block-background" slot="block-background-image"></div>
@@ -594,7 +620,7 @@
                 <footer class="ws-surface ws-dark-0" data-surface="0" data-ws-slots=" footer-navigation footer-quote footer-copyright footer-social-profiles">
                     <div class="ws-container">
                         <ws-columns>
-                            <ws-column class="col-lg-9">
+                            <ws-column class="col-lg">
                                 <div slot="footer-navigation">
                                     <ws-columns>
                                         <ws-column class="col-lg-4">
@@ -622,7 +648,7 @@
                                         </ws-column>
                                 </div>
                             </ws-column>
-                            <ws-column class="col-lg-3">
+                            <ws-column class="col-lg">
                                 <div class="ws-m-footer-quote" slot="footer-quote">
                                     <q class="heading-4">
                                         StakeWarriors has a dedicated team working to develop blockchain smart contracts that will both strengthen our community, and cultivate enjoyable
@@ -640,7 +666,7 @@
                                 <small id="copyright">
                                     <span>Copyright 2021 Stake Warriors. All rights reserved.</span>
                                     <span>
-                                        <a href="https://stakewarriors.app/privacy-policy">Privacy Policy</a>
+                                        <a href="https://stakewarriors.app/policy">Privacy Policy</a>
                                     </span>
                                 </small>
                             </div>
@@ -648,6 +674,12 @@
                                 <ws-social-icons>
                                     <section>
                                         <ul>
+                                            <li>
+                                                <img class="onclick-flip" title="'https://github.com/StakeWarriors/CrowdSafe"
+                                                    onclick="window.location.href='https://github.com/StakeWarriors/CrowdSafe'" 
+                                                    src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                                                    title="https://cdn-icons-png.flaticon.com/512/25/25231.png" />
+                                            </li>
                                             <li>
                                                 <a href="https://twitter.com/StakeWarriors" title="Follow us on Twitter">
                                                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -657,6 +689,12 @@
                                                     </svg>
                                                     </ws-icon>
                                                 </a>
+                                            </li>
+                                            <li>
+                                                <img class="onclick-flip medium" onclick="window.location.href='https://medium.com/@StakeWarriors/the-death-of-scam-coins-a7935d72d227'"
+                                                    title='https://medium.com/@StakeWarriors/the-death-of-scam-coins-a7935d72d227'
+                                                    src="https://cdn.iconscout.com/icon/free/png-256/medium-logo-3610097-3014862.png"
+                                                    title="https://cdn.iconscout.com/icon/free/png-256/medium-logo-3610097-3014862.png" />
                                             </li>
                                         </ul>
                                     </section>

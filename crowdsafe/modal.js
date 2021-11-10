@@ -49,7 +49,7 @@ function init() {
       package: WalletConnectProvider,
       options: {
         // Mikko's test key - don't copy as your mileage may vary
-        infuraId: "8043bb2cf99347b1bfadfb233c5325c0",
+        infuraId: "72e6d7f9fd114a249542351ad5cecb71",
       }
     },
 
@@ -68,7 +68,6 @@ function init() {
     disableInjectedProvider: false, // optional. For MetaMask / Brave / Opera.
   });
 
-  console.log("Web3Modal instance is", web3Modal);
 }
 
 
