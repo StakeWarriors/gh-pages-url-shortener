@@ -1,153 +1,1731 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>CrowdSafe Registrar</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="default.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <!-- Get some bootstrap default styles -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <title>CrowdWatch - CrowdSafe registrar</title>
+    <meta data-n-head="ssr" charset="utf-8" />
+    <meta
+      data-n-head="ssr"
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <meta
+      data-n-head="ssr"
+      s
+      name="keywords"
+      content="CrowdWatch, CrowdSafe, StakeWarriors, CrowdSafe Registrar, VERIFY, 5WARS"
+    />
+    <meta
+      data-n-head="ssr"
+      name="description"
+      content="CrowdWatch is a CrowdSafe registrar of users and smart contract data, providing one-stop data services based on CrowdSafe, including various safety rankings, scam alerts, and activity tracking."
+    />
+    <meta data-n-head="ssr" name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      data-n-head="ssr"
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta
+      data-n-head="ssr"
+      name="apple-mobile-web-app-title"
+      content="Filfox"
+    />
+    <meta data-n-head="ssr" name="mobile-web-app-capable" content="yes" />
+    <meta data-n-head="ssr" name="theme-color" content="#1a4fc9" />
+    <meta data-n-head="ssr" name="application-name" content="Filfox" />
+    <link
+      data-n-head="ssr"
+      rel="manifest"
+      href="https://filfox.info/dist/manifest.210c225a.json"
+    />
+    <link data-n-head="ssr" rel="icon" href="../favicon.ico" />
+    <link
+      data-n-head="ssr"
+      rel="apple-touch-icon"
+      href="../favicon.ico"
+      sizes="512x512"
+    />
+    <link rel="stylesheet" href="https://filfox.info/dist/css/f11441d.css" />
+    <link rel="stylesheet" href="https://filfox.info/dist/css/a5a40dc.css" />
+    <link rel="stylesheet" href="https://filfox.info/dist/css/c3c57f4.css" />
+    <link rel="stylesheet" href="https://filfox.info/dist/css/f11441d.css" />
+    <link rel="stylesheet" href="https://filfox.info/dist/css/a5a40dc.css" />
+    <link rel="stylesheet" href="https://filfox.info/dist/css/d48f0ff.css" />
+    <link rel="stylesheet" href="https://filfox.info/dist/css/9f9ac21.css" />
+    <link rel="stylesheet" href="https://filfox.info/dist/css/81e400e.css" />
+    <link
+      data-n-head="ssr"
+      data-hid="i18n-alt-en"
+      rel="alternate"
+      href="/en"
+      hreflang="en"
+    />
+    <link
+      data-n-head="ssr"
+      data-hid="i18n-alt-en-US"
+      rel="alternate"
+      href="/en"
+      hreflang="en-US"
+    />
+    <link
+      data-n-head="ssr"
+      data-hid="i18n-alt-zh"
+      rel="alternate"
+      href="/zh"
+      hreflang="zh"
+    />
+    <link
+      data-n-head="ssr"
+      data-hid="i18n-alt-zh-CN"
+      rel="alternate"
+      href="/zh"
+      hreflang="zh-CN"
+    />
+    <link
+      data-n-head="ssr"
+      data-hid="i18n-alt-ko_KR"
+      rel="alternate"
+      href="/ko"
+      hreflang="ko_KR"
+    />
+    <link
+      data-n-head="ssr"
+      data-hid="i18n-xd"
+      rel="alternate"
+      href="/en"
+      hreflang="x-default"
+    />
+    <link data-n-head="ssr" data-hid="i18n-can" rel="canonical" href="/en" />
+    <meta
+      data-n-head="ssr"
+      data-hid="i18n-og"
+      property="og:locale"
+      content="en_US"
+    />
+    <meta
+      data-n-head="ssr"
+      data-hid="i18n-og-alt-zh-CN"
+      property="og:locale:alternate"
+      content="zh_CN"
+    />
+    <meta
+      data-n-head="ssr"
+      data-hid="i18n-og-alt-ko_KR"
+      property="og:locale:alternate"
+      content="ko_KR"
+    />
+    <style>
+        body{
+            filter: invert(1) hue-rotate(180deg) contrast(.95);
+        }
+        .bg-footer{
+            background-color: #fafafa!important;
+        }
+        .bg-footer img{
+            filter:invert(1);
+        }
+        .bg-footer p{
+            color: #3a3a4f!important;
+        }
+        .bg-footer footer{
+            color: #6a6a6f;
+        }
+        .text-background{
+            color:black;
+            font-weight: bold;
+        }
+  </style>
   </head>
-  <body>asdasdasd
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid ">
-          <div class="navbar-header">
-          <a class="navbar-brand" href="#">WebSiteName</a>
-          </div>
-          <ul class="nav navbar-nav">
-            <li>
-              <a class="menu_text"href="https://StakeWarriors.app">Home</a>
-              <a class="menu_icon"href="https://StakeWarriors.app"></a>
-            </li>
-            <li>
-              <a class="disabled menu_text"href="#">Team Blog</a>
-              <a class="disabled menu_icon"href="#"></a>
-            </li>
-            <li>
-              <a class="menu_text"href="https://StakeWarriors.app/assets/Stake%20Wars%20Road%20Map%20v1.gif">Road Map</a>
-              <a class="menu_icon"href="https://StakeWarriors.app/assets/Stake%20Wars%20Road%20Map%20v1.gif"><i class="fas fa-map-marked-alt"></i></a>
-            </li>
-          </ul>
-      </div>
-    </nav>
-asdasdsad
-    <!-- Construct a Bootstrap layout -->
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h1>Web3modal example for vanille JavaScript and HTML</h1>
-
-          <p>No wallet connected. Connect wallet to show accounts and their ETH balances.</p>
-
-          <div class="alert alert-danger" id="alert-error-https" style="display: none">
-            You can run this example only over HTTPS connection.
-          </div>
-
-          <div id="prepare">
-            <button class="btn btn-primary" id="btn-connect">
-              Connect wallet
-            </button>
-          </div>
-
-          <div id="connected" style="display: none">
-
-            <button class="btn btn-primary" id="btn-disconnect">
-              Disconnect wallet
-            </button>
-
-            <hr>
-
-            <div id="network">
-              <p>
-                <strong>Connected blockchain:</strong> <span id="network-name"></span>
-              </p>
-
-              <p>
-                <strong>Selected account:</strong> <span id="selected-account"></span>
-              </p>
-
+  <body data-new-gr-c-s-check-loaded="14.1038.0" data-gr-ext-installed="">
+    <div id="__nuxt">
+      <!---->
+      <div id="__layout">
+        <div
+          class="flex flex-col min-h-screen bg-background"
+          data-v-3d9b4df4=""
+        >
+          <nav class="mx-auto bg-main h-28 w-full" data-v-3d9b4df4="">
+            <div
+              class="
+                flex
+                h-16
+                container
+                mx-auto
+                items-center
+                lg:pt-2
+                justify-between
+              "
+            >
+              <a
+                href="/en"
+                aria-current="page"
+                class="
+                  flex
+                  items-center
+                  lg:-ml-4
+                  px-1
+                  lg:px-4
+                  nuxt-link-exact-active nuxt-link-active
+                "
+                ><img
+                style="filter: invert(1);"
+                  src="../assets/CrowdWatch.png"
+                  alt="CrowdWatch"
+                  class="h-6 lg:h-8"
+              /></a>
+              <div
+                class="
+                  lg:hidden
+                  mx-3
+                  md:mx-8
+                  flex-1
+                  el-input el-input--mini el-input--suffix
+                "
+              >
+                <input
+                  type="text"
+                  autocomplete="off"
+                  placeholder="Search for Contract/Account/Token..."
+                  class="el-input__inner"
+                />
+                <span class="el-input__suffix"
+                  ><span class="el-input__suffix-inner"
+                    ><i class="el-input__icon el-icon-search"></i></span
+                ></span>
+              </div>
+              <div class="flex items-center">
+                <div class="hidden lg:flex items-center mr-6">
+                  <!---->
+                  <p class="text-white text-sm mr-1">Current network:</p>
+                  <span class="text-background text-sm">Mainnet</span>
+                </div>
+              </div>
             </div>
+            <div class="container flex h-12 mx-auto px-0 hidden lg:flex">
+              <a
+                href="https://stakewarriors.app/crowdsafe"
+                aria-current="page"
+                class="
+                  flex
+                  items-center
+                  mr-2
+                  xl:mr-3
+                  px-2
+                  nuxt-link-exact-active nuxt-link-active
+                "
+                ><div class="text-background text-sm">Home</div></a
+              >
+              <a disabled class=" disabled flex items-center mx-2 xl:mx-3 px-2"
+                ><div style="color:#a9a9a9; cursor:initial" class="text-background text-sm">Submit a Report</div></a
+              >
+              <div class="flex items-center mx-2 xl:mx-3 el-dropdown">
+                  <span
+                  class="
+                  el-dropdown-link
+                  px-2
+                  text-background text-sm
+                  el-dropdown-selfdefine
+                  "
+                  aria-haspopup="list"
+                  aria-controls="dropdown-menu-9194"
+                  role="button"
+                  tabindex="0"
+                  >
+                  <a href="https://polygonscan.com/address/0x28B97a68D53cfBEa6313b588255af4F53a0A7754#readProxyContract">
+                  Contract
+                </a>
+                </span>
+              </div>
+              <div class="flex-grow"></div>
+              <div
+                class="
+                  flex
+                  items-center
+                  xl:w-2/5
+                  el-input el-input--small el-input--suffix
+                  lg:w-1/3
+                "
+              >
+              <input
+                  type="text"
+                  autocomplete="off"
+                  placeholder="Search for Block/Account/Address/Message..."
+                  class="el-input__inner"
+                /><span class="el-input__suffix"
+                  ><span class="el-input__suffix-inner"
+                    ><i class="el-input__icon el-icon-search"></i
+                    ></span
+                  ></span
+                >
+              </div>
+            </div>
+            <div
+              class="
+                flex flex-col
+                bg-white
+                overflow-hidden
+                pb-1
+                border-b border-background
+                lg:hidden
+                hidden
+              "
+              data-v-1d4e293d=""
+            >
+              <div class="ml-4 mr-1 mt-1" data-v-1d4e293d="">
+                <div
+                  role="tablist"
+                  aria-multiselectable="true"
+                  class="el-collapse w-full"
+                  data-v-1d4e293d=""
+                >
+                  <div class="el-collapse-item" data-v-1d4e293d="">
+                    <div
+                      role="tab"
+                      aria-controls="el-collapse-content-9541"
+                      aria-describedby="el-collapse-content-9541"
+                    >
+                      <div
+                        role="button"
+                        id="el-collapse-head-1520"
+                        tabindex="0"
+                        class="el-collapse-item__header"
+                      >
+                        Blockchain<i
+                          class="el-collapse-item__arrow el-icon-arrow-right"
+                        ></i>
+                      </div>
+                    </div>
+                    <div
+                      role="tabpanel"
+                      aria-hidden="true"
+                      aria-labelledby="el-collapse-head-1520"
+                      id="el-collapse-content-1520"
+                      class="el-collapse-item__wrap"
+                      style="display: none"
+                    >
+                      <div class="el-collapse-item__content">
+                        <a href="/en/tipset" class="link" data-v-1d4e293d="">
+                          Tipsets </a
+                        ><a href="/en/message" class="link" data-v-1d4e293d="">
+                          Messages </a
+                        ><a
+                          href="/en/rich-list"
+                          class="link"
+                          data-v-1d4e293d=""
+                        >
+                          Rich List </a
+                        ><a href="/en/deal" class="link" data-v-1d4e293d="">
+                          Deal List </a
+                        ><a href="/en/mempool" class="link" data-v-1d4e293d="">
+                          Mempool
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <a
+                  href="/en/ranks"
+                  class="block ranks text-sm py-2 cursor-pointer"
+                  data-v-1d4e293d=""
+                >
+                  Top Miners
+                </a>
+                <div
+                  role="tablist"
+                  aria-multiselectable="true"
+                  class="el-collapse w-full"
+                  data-v-1d4e293d=""
+                >
+                  <div class="el-collapse-item" data-v-1d4e293d="">
+                    <div
+                      role="tab"
+                      aria-controls="el-collapse-content-8076"
+                      aria-describedby="el-collapse-content-8076"
+                    >
+                      <div
+                        role="button"
+                        id="el-collapse-head-819"
+                        tabindex="0"
+                        class="el-collapse-item__header"
+                      >
+                        Stats<i
+                          class="el-collapse-item__arrow el-icon-arrow-right"
+                        ></i>
+                      </div>
+                    </div>
+                    <div
+                      role="tabpanel"
+                      aria-hidden="true"
+                      aria-labelledby="el-collapse-head-819"
+                      id="el-collapse-content-819"
+                      class="el-collapse-item__wrap"
+                      style="display: none"
+                    >
+                      <div class="el-collapse-item__content">
+                        <a
+                          href="/en/stats/miner"
+                          class="link"
+                          data-v-1d4e293d=""
+                        >
+                          Mining Charts </a
+                        ><a
+                          href="/en/stats/gas"
+                          class="link"
+                          data-v-1d4e293d=""
+                        >
+                          Gas Stats
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  role="tablist"
+                  aria-multiselectable="true"
+                  class="el-collapse w-full"
+                  data-v-1d4e293d=""
+                >
+                  <div class="el-collapse-item" data-v-1d4e293d="">
+                    <div
+                      role="tab"
+                      aria-controls="el-collapse-content-2532"
+                      aria-describedby="el-collapse-content-2532"
+                    >
+                      <div
+                        role="button"
+                        id="el-collapse-head-40"
+                        tabindex="0"
+                        class="el-collapse-item__header"
+                      >
+                        Resources
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-grow"></div>
+          </nav>
+          <div class="container mx-auto relative flex-grow" data-v-3d9b4df4="">
+            <div>
+              <div class="my-2 lg:my-4" data-v-78f2be95="">
+                <div
+                  class="
+                    bg-white
+                    flex
+                    justify-between
+                    items-center
+                    h-10
+                    lg:h-12
+                    border-b border-background
+                    lg:rounded-t-md
+                  "
+                  data-v-78f2be95=""
+                >
+                  <div
+                    class="flex items-center h-10 lg:h-12 pl-4"
+                    data-v-58683e44=""
+                    data-v-78f2be95=""
+                  >
+                    <img
+                      src="https://filfox.info/dist/img/overview.37017bf.svg"
+                      alt="icon"
+                      class="image"
+                      data-v-58683e44=""
+                    />
+                    <div class="ml-2 text-sm lg:text-base" data-v-58683e44="">
+                      Monitor Overview
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="bg-white px-4 pt-4 lg:p-4 lg:rounded-b-md"
+                  data-v-78f2be95=""
+                >
+                  <div
+                    class="
+                      grid grid-flow-row grid-cols-2
+                      lg:grid-cols-5
+                      gap-2
+                      lg:gap-4
+                      overview-list
+                    "
+                    data-v-78f2be95=""
+                  >
+                    <div
+                      class="flex items-center rounded-sm bg-background"
+                      data-v-78f2be95=""
+                    >
+                      <div class="mt-2 lg:mt-8 mb-2 lg:mb-6 lg:mx-auto px-2">
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle">
+                            Number of Scams Reported
+                          </span>
+                        </div>
+                        <div
+                          id="getReportedScamsLength"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex items-center rounded-sm bg-background"
+                      data-v-78f2be95=""
+                    >
+                      <div class="mt-2 lg:mt-8 mb-2 lg:mb-6 lg:mx-auto px-2">
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle">
+                            Count of Users Reporting Scams
+                          </span>
+                        </div>
+                        <span
+                          id="getScamReportersLength"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        ></span>
+                      </div>
+                    </div>
+                    <div
+                      class="flex items-center rounded-sm bg-background"
+                      data-v-78f2be95=""
+                    >
+                      <div class="mt-2 lg:mt-8 mb-2 lg:mb-6 lg:mx-auto px-2">
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle">
+                            Number of Safe Addresses Reported
+                          </span>
+                        </div>
+                        <div
+                          id="getReportedSafeLength"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex items-center rounded-sm bg-background"
+                      data-v-78f2be95=""
+                    >
+                      <div class="mt-2 lg:mt-8 mb-2 lg:mb-6 lg:mx-auto px-2">
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle"> Number of Addresses Labeled Safe </span>
+                        </div>
+                        <div
+                          id=getSafeReportersLength""
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        >
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex items-center rounded-sm bg-background"
+                      data-v-78f2be95=""
+                    >
+                      <div class="mt-2 lg:mt-8 mb-2 lg:mb-6 lg:mx-auto px-2">
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle">
+                            Total Value Locked </span
+                          >
+                        </div>
+                        <div
+                        id="tvl"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        >
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex items-center rounded-sm bg-background"
+                      data-v-78f2be95=""
+                    >
+                    <div class="mt-2 lg:mt-8 mb-2 lg:mb-6 lg:mx-auto px-2">
+                        <span class="align-middle">Highest Scam Score </span>
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle">
+                            Address </span
+                          >
+                        </div>
+                        <div
+                        id="highestScamAddress"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        >
+                        </div>
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle">
+                            Level </span
+                          >
+                        </div>
+                        <div
+                        id="highestScamAddress"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        >
+                        </div>
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle">
+                            Awareness </span
+                          >
+                        </div>
+                        <div
+                        id="highestScamAddress"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        >
+                        </div>
+                    </div>
 
-            <hr>aasdasdasd
-
-            <h3>All account balances</h3>
-
-            <table class="table table-listing">
-              <thead>
-                <th>Address</th>
-                <th>ETH balance</th>
-              </thead>
-
-              <tbody id="accounts">
-              </tbody>
-            </table>
-
-            <p>Please try to switch between different accounts in your wallet if your wallet supports this functonality.</p>
-
+                    </div>
+                    <!---->
+                    <div
+                      class="flex items-center rounded-sm bg-background"
+                      data-v-78f2be95=""
+                    >
+                    <div class="mt-2 lg:mt-8 mb-2 lg:mb-6 lg:mx-auto px-2">
+                        <span class="align-middle">Highest Safety Score </span>
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle">
+                            Address </span
+                          >
+                        </div>
+                        <div
+                        id="highestSafetyAddress"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        >
+                        </div>
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle">
+                            Level </span
+                          >
+                        </div>
+                        <div
+                        id="highestSafetyAddress"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        >
+                        </div>
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle">
+                            Awareness </span
+                          >
+                        </div>
+                        <div
+                        id="highestSafetyAddress"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        >
+                        </div>
+                    </div>
+                    </div>
+                    <!---->
+                  </div>
+                  
+                </div>
+              </div>
+              <!--SMALL CHART -->
+              <div class="mb-2 bg-white lg:hidden">
+                <div>
+                  <div class="flex justify-between items-center">
+                    <div
+                      class="flex items-center h-10 lg:h-12 pl-4"
+                      data-v-58683e44=""
+                    >
+                      <img
+                        src="https://filfox.info/dist/img/miner-ranks.9f8b0de.svg"
+                        alt="icon"
+                        class="image"
+                        data-v-58683e44=""
+                      />
+                      <div class="ml-2 text-sm lg:text-base" data-v-58683e44="">
+                        Top Verified
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-center text-xs px-4 border-b">
+                    <div class="w-1/8 pl-1">
+                      <img
+                        data-v-33fb9720=""
+                        src="https://filfox.info/dist/img/first.f20f1e6.png"
+                        alt="1"
+                        class="image"
+                      />
+                    </div>
+                    <div class="w-1/2 flex items-center py-2">
+                      <a
+                        
+                        class="filecoin-link text-filecoin"
+                        
+                        ></a
+                      >
+                      <div
+                        data-v-57a10158=""
+                        class="flex justify-center items-center"
+                        style="max-width: 66%"
+                      ></div>
+                    </div>
+                    <div class="w-3/8 text-right">147.66  / 1.08%</div>
+                  </div>
+                  <div class="flex items-center text-xs px-4 border-b">
+                    <div class="w-1/8 pl-1">
+                      <img
+                        data-v-33fb9720=""
+                        src="https://filfox.info/dist/img/second.ab3c1e7.png"
+                        alt="2"
+                        class="image"
+                      />
+                    </div>
+                    <div class="w-1/2 flex items-center py-2">
+                      <a
+                        
+                        class="filecoin-link text-filecoin"
+                        
+                        ></a
+                      >
+                      <div
+                        data-v-57a10158=""
+                        class="flex justify-center items-center"
+                        style="max-width: 66%"
+                      ></div>
+                    </div>
+                    <div class="w-3/8 text-right">133.16  / 0.98%</div>
+                  </div>
+                  <div class="flex items-center text-xs px-4 border-b">
+                    <div class="w-1/8 pl-1">
+                      <img
+                        data-v-33fb9720=""
+                        src="https://filfox.info/dist/img/third.93fe8ab.png"
+                        alt="3"
+                        class="image"
+                      />
+                    </div>
+                    <div class="w-1/2 flex items-center py-2">
+                      <a
+                        
+                        class="filecoin-link text-filecoin"
+                        
+                        ></a
+                      >
+                      <div
+                        data-v-57a10158=""
+                        class="flex justify-center items-center"
+                        style="max-width: 66%"
+                      ></div>
+                    </div>
+                    <div class="w-3/8 text-right">129.89  / 0.95%</div>
+                  </div>
+                  <div class="flex items-center text-xs px-4 border-b">
+                    <div class="w-1/8 pl-1">
+                      <span
+                        data-v-33fb9720=""
+                        class="
+                          inline-block
+                          rounded-full
+                          px-1
+                          text-socialBg
+                          lg:bg-white lg:text-black lg:m-auto
+                          bg-background
+                        "
+                      >
+                        4
+                      </span>
+                    </div>
+                    <div class="w-1/2 flex items-center py-2">
+                      <a
+                        
+                        class="filecoin-link text-filecoin"
+                        
+                        ></a
+                      >
+                      <div
+                        data-v-57a10158=""
+                        class="flex justify-center items-center"
+                        style="max-width: 66%"
+                      ></div>
+                    </div>
+                    <div class="w-3/8 text-right">115.11  / 0.85%</div>
+                  </div>
+                </div>
+                <div class="flex items-center h-12">
+                  <a href="/en/ranks/power" class="m-auto"
+                    ><button
+                      type="button"
+                      class="el-button el-button--text el-button--mini"
+                    >
+                    <span> More </span>
+                    </button></a
+                  >
+                </div>
+              </div>
+              <!--BIG CHART -->
+              <div class="mb-4 bg-white rounded-md hidden lg:block">
+                <div class="border-b border-background">
+                  <div
+                    class="flex items-center h-10 lg:h-12 pl-4"
+                    data-v-58683e44=""
+                  >
+                    <img
+                      src="https://filfox.info/dist/img/miner-ranks.9f8b0de.svg"
+                      alt="icon"
+                      class="image"
+                      data-v-58683e44=""
+                    />
+                    <div class="ml-2 text-sm lg:text-base" data-v-58683e44="">
+                      Top Verified
+                    </div>
+                  </div>
+                </div>
+                <div class="px-4 mt-3 mb-5">
+                  <table class="table-fixed w-full">
+                    <thead class="text-gray-600 text-sm m-2">
+                      <tr>
+                        <th class="w-1/12">Rank</th>
+                        <th class="w-1/12">Address</th>
+                        <th class="w-1/10">ENS</th>
+                        <th class="w-4/15">Safe / Scam Ratio</th>
+                        <th class="w-1/10"># of Reporters</th>
+                        <th class="w-1/10">
+                          <div class="flex justify-center items-center">
+                            Scam Score
+                          </div>
+                        </th>
+                        <th class="w-1/10">
+                          <div class="flex justify-center items-center">
+                            Safe Score
+                          </div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="text-sm text-center">
+                      <tr class="border-b border-background h-10">
+                        <td>
+                          <img
+                            data-v-33fb9720=""
+                            src="https://filfox.info/dist/img/first.f20f1e6.png"
+                            alt="1"
+                            class="image"
+                          />
+                        </td>
+                        <td>
+                          <a
+                            id=verified_1"
+                            class="filecoin-link text-filecoin"
+                            >
+                            </a>
+                        </td>
+                        <td>
+                          <div
+                            data-v-57a10158=""
+                            class="flex justify-center items-center max-w-full"
+                          >
+                            --
+                          </div>
+                        </td>
+                        <td>
+                          <div class="flex items-center justify-start">
+                            <div
+                              role="progressbar"
+                              aria-valuenow="100"
+                              aria-valuemin="0"
+                              aria-valuemax="100"
+                              class="
+                                el-progress
+                                flex
+                                w-1/2
+                                pr-3
+                                ml-8
+                                el-progress--line el-progress--without-text
+                              "
+                            >
+                              <div class="el-progress-bar">
+                                <div
+                                  class="el-progress-bar__outer"
+                                  style="height: 6px"
+                                >
+                                  <div
+                                    class="el-progress-bar__inner"
+                                    style="width: 100%"
+                                  >
+                                    <!---->
+                                  </div>
+                                </div>
+                              </div>
+                              <!---->
+                            </div>
+                            <div>147.66  / 1.08%</div>
+                          </div>
+                        </td>
+                        <td>3,907.56 </td>
+                        <td>0.03 </td>
+                        <td>-1.38 </td>
+                      </tr>
+                      <tr class="border-b border-background h-10">
+                        <td>
+                          <img
+                            data-v-33fb9720=""
+                            src="https://filfox.info/dist/img/second.ab3c1e7.png"
+                            alt="2"
+                            class="image"
+                          />
+                        </td>
+                        <td>
+                            <a
+                            id=verified_2"
+                            class="filecoin-link text-filecoin"
+                            >
+                            </a>
+                        </td>
+                        <td>
+                          <div
+                            data-v-57a10158=""
+                            class="flex justify-center items-center max-w-full"
+                          >
+                            --
+                          </div>
+                        </td>
+                        <td>
+                          <div class="flex items-center justify-start">
+                            <div
+                              role="progressbar"
+                              aria-valuenow="90.18168185297799"
+                              aria-valuemin="0"
+                              aria-valuemax="100"
+                              class="
+                                el-progress
+                                flex
+                                w-1/2
+                                pr-3
+                                ml-8
+                                el-progress--line el-progress--without-text
+                              "
+                            >
+                              <div class="el-progress-bar">
+                                <div
+                                  class="el-progress-bar__outer"
+                                  style="height: 6px"
+                                >
+                                  <div
+                                    class="el-progress-bar__inner"
+                                    style="width: 90.1817%"
+                                  >
+                                    <!---->
+                                  </div>
+                                </div>
+                              </div>
+                              <!---->
+                            </div>
+                            <div>133.16  / 0.98%</div>
+                          </div>
+                        </td>
+                        <td>3,186.43 </td>
+                        <td>0.02 </td>
+                        <td>-64.00 </td>
+                      </tr>
+                      <tr class="border-b border-background h-10">
+                        <td>
+                          <img
+                            data-v-33fb9720=""
+                            src="https://filfox.info/dist/img/third.93fe8ab.png"
+                            alt="3"
+                            class="image"
+                          />
+                        </td>
+                        <td>
+                            <a
+                            id=verified_2"
+                            class="filecoin-link text-filecoin"
+                            >
+                            </a>
+                        </td>
+                        <td>
+                          <div
+                            data-v-57a10158=""
+                            class="flex justify-center items-center max-w-full"
+                          >
+                            --
+                          </div>
+                        </td>
+                        <td>
+                          <div class="flex items-center justify-start">
+                            <div
+                              role="progressbar"
+                              aria-valuenow="87.96160351575094"
+                              aria-valuemin="0"
+                              aria-valuemax="100"
+                              class="
+                                el-progress
+                                flex
+                                w-1/2
+                                pr-3
+                                ml-8
+                                el-progress--line el-progress--without-text
+                              "
+                            >
+                              <div class="el-progress-bar">
+                                <div
+                                  class="el-progress-bar__outer"
+                                  style="height: 6px"
+                                >
+                                  <div
+                                    class="el-progress-bar__inner"
+                                    style="width: 87.9616%"
+                                  >
+                                    <!---->
+                                  </div>
+                                </div>
+                              </div>
+                              <!---->
+                            </div>
+                            <div>129.89  / 0.95%</div>
+                          </div>
+                        </td>
+                        <td>3,628.38 </td>
+                        <td>0.03 </td>
+                        <td>-2.81 </td>
+                      </tr>
+                      <tr class="border-b border-background h-10">
+                        <td>
+                          <span
+                            data-v-33fb9720=""
+                            class="
+                              data-cell-1
+                              inline-block
+                              rounded-full
+                              px-1
+                              text-socialBg
+                              lg:bg-white lg:text-black lg:m-auto
+                              bg-background
+                            "
+                          >
+                          </span>
+                        </td>
+                        <td>
+                          <a
+                            
+                            class="filecoin-link text-filecoin"
+                            
+                            ></a
+                          >
+                        </td>
+                        <td>
+                          <div
+                            data-v-57a10158=""
+                            class="flex justify-center items-center max-w-full"
+                          >
+                            --
+                          </div>
+                        </td>
+                        <td>
+                          <div class="flex items-center justify-start">
+                            <div
+                              role="progressbar"
+                              aria-valuenow="77.95740392612029"
+                              aria-valuemin="0"
+                              aria-valuemax="100"
+                              class="
+                                el-progress
+                                flex
+                                w-1/2
+                                pr-3
+                                ml-8
+                                el-progress--line el-progress--without-text
+                              "
+                            >
+                              <div class="el-progress-bar">
+                                <div
+                                  class="el-progress-bar__outer"
+                                  style="height: 6px"
+                                >
+                                  <div
+                                    class="el-progress-bar__inner"
+                                    style="width: 77.9574%"
+                                  >
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div>115.11  / 0.85%</div>
+                          </div>
+                        </td>
+                        <td>2,605.00 </td>
+                        <td>0.02 </td>
+                        <td>5.00 </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="m-auto text-center h-16">
+                  <a href="/en/ranks/power" class="mx-auto"
+                    ><button
+                      type="button"
+                      class="
+                        el-button el-button--default el-button--mini
+                        is-round
+                      "
+                    >
+                    <span> More </span>
+                    </button></a>
+                </div>
+              </div>
+              <!-- SMALL CHART  -->
+              <div class="mb-2 bg-white lg:hidden">
+                <div>
+                  <div class="flex justify-between items-center">
+                    <div
+                      class="flex items-center h-10 lg:h-12 pl-4"
+                      data-v-58683e44=""
+                    >
+                      <img
+                        src="https://filfox.info/dist/img/miner-ranks.9f8b0de.svg"
+                        alt="icon"
+                        class="image"
+                        data-v-58683e44=""
+                      />
+                      <div class="ml-2 text-sm lg:text-base" data-v-58683e44="">
+                        Top Scams
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex items-center text-xs px-4 border-b">
+                    <div class="w-1/8 pl-1">
+                      <img
+                        data-v-33fb9720=""
+                        src="https://filfox.info/dist/img/first.f20f1e6.png"
+                        alt="1"
+                        class="image"
+                      />
+                    </div>
+                    <div class="w-1/2 flex items-center py-2">
+                    <a class="filecoin-link text-filecoin"></a>
+                      <div
+                        data-v-57a10158=""
+                        class="flex justify-center items-center"
+                        style="max-width: 66%"
+                      ></div>
+                    </div>
+                    <div class="w-3/8 text-right">147.66  / 1.08%</div>
+                  </div>
+                  <div class="flex items-center text-xs px-4 border-b">
+                    <div class="w-1/8 pl-1">
+                      <img
+                        data-v-33fb9720=""
+                        src="https://filfox.info/dist/img/second.ab3c1e7.png"
+                        alt="2"
+                        class="image"
+                      />
+                    </div>
+                    <div class="w-1/2 flex items-center py-2">
+                      <a class="filecoin-link text-filecoin"></a>
+                      <div
+                        data-v-57a10158=""
+                        class="flex justify-center items-center"
+                        style="max-width: 66%"
+                      ></div>
+                    </div>
+                    <div class="w-3/8 text-right">133.16  / 0.98%</div>
+                  </div>
+                  <div class="flex items-center text-xs px-4 border-b">
+                    <div class="w-1/8 pl-1">
+                      <img
+                        data-v-33fb9720=""
+                        src="https://filfox.info/dist/img/third.93fe8ab.png"
+                        alt="3"
+                        class="image"
+                      />
+                    </div>
+                    <div class="w-1/2 flex items-center py-2">
+                      <a
+                        
+                        class="filecoin-link text-filecoin"
+                        
+                        ></a
+                      >
+                      <div
+                        data-v-57a10158=""
+                        class="flex justify-center items-center"
+                        style="max-width: 66%"
+                      ></div>
+                    </div>
+                    <div class="w-3/8 text-right">129.89  / 0.95%</div>
+                  </div>
+                  <div class="flex items-center text-xs px-4 border-b">
+                    <div class="w-1/8 pl-1">
+                      <span
+                        data-v-33fb9720=""
+                        class="
+                          inline-block
+                          rounded-full
+                          px-1
+                          text-socialBg
+                          lg:bg-white lg:text-black lg:m-auto
+                          bg-background
+                        "
+                      >
+                        4
+                      </span>
+                    </div>
+                    <div class="w-1/2 flex items-center py-2">
+                      <a
+                        
+                        class="filecoin-link text-filecoin"
+                        
+                        ></a
+                      >
+                      <div
+                        data-v-57a10158=""
+                        class="flex justify-center items-center"
+                        style="max-width: 66%"
+                      ></div>
+                    </div>
+                    <div class="w-3/8 text-right">115.11  / 0.85%</div>
+                  </div>
+                </div>
+                <div class="flex items-center h-12">
+                  <a href="/en/ranks/power" class="m-auto"
+                    ><button
+                      type="button"
+                      class="el-button el-button--text el-button--mini"
+                    >
+                    <span> More </span>
+                    </button></a
+                  >
+                </div>
+              </div>
+              <!--BIG CHART -->
+              <div class="mb-4 bg-white rounded-md hidden lg:block">
+                <div class="border-b border-background">
+                  <div
+                    class="flex items-center h-10 lg:h-12 pl-4"
+                    data-v-58683e44=""
+                  >
+                    <img
+                      src="https://filfox.info/dist/img/miner-ranks.9f8b0de.svg"
+                      alt="icon"
+                      class="image"
+                      data-v-58683e44=""
+                    />
+                    <div class="ml-2 text-sm lg:text-base" data-v-58683e44="">
+                        Top Scams
+                    </div>
+                  </div>
+                </div>
+                <div class="px-4 mt-3 mb-5">
+                  <table class="table-fixed w-full">
+                    <thead class="text-gray-600 text-sm m-2">
+                      <tr>
+                        <th class="w-1/12">Rank</th>
+                        <th class="w-1/12">Address</th>
+                        <th class="w-1/10">ENS</th>
+                        <th class="w-4/15">Scam / Safe Ratio</th>
+                        <th class="w-1/10"># of Reporters</th>
+                        <th class="w-1/10">
+                          <div class="flex justify-center items-center">
+                            Scam Score
+                          </div>
+                        </th>
+                        <th class="w-1/10">
+                          <div class="flex justify-center items-center">
+                            Safe Score
+                          </div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="text-sm text-center">
+                      <tr class="border-b border-background h-10">
+                        <td>
+                          <img
+                            data-v-33fb9720=""
+                            src="https://filfox.info/dist/img/first.f20f1e6.png"
+                            alt="1"
+                            class="image"
+                          />
+                        </td>
+                        <td>
+                          <a
+                            id=verified_1"
+                            class="filecoin-link text-filecoin"
+                            >
+                            </a>
+                        </td>
+                        <td>
+                          <div
+                            data-v-57a10158=""
+                            class="flex justify-center items-center max-w-full"
+                          >
+                            --
+                          </div>
+                        </td>
+                        <td>
+                          <div class="flex items-center justify-start">
+                            <div
+                              role="progressbar"
+                              aria-valuenow="100"
+                              aria-valuemin="0"
+                              aria-valuemax="100"
+                              class="
+                                el-progress
+                                flex
+                                w-1/2
+                                pr-3
+                                ml-8
+                                el-progress--line el-progress--without-text
+                              "
+                            >
+                              <div class="el-progress-bar">
+                                <div
+                                  class="el-progress-bar__outer"
+                                  style="height: 6px"
+                                >
+                                  <div
+                                    class="el-progress-bar__inner"
+                                    style="width: 100%"
+                                  >
+                                    <!---->
+                                  </div>
+                                </div>
+                              </div>
+                              <!---->
+                            </div>
+                            <div>147.66  / 1.08%</div>
+                          </div>
+                        </td>
+                        <td>3,907.56 </td>
+                        <td>0.03 </td>
+                        <td>-1.38 </td>
+                      </tr>
+                      <tr class="border-b border-background h-10">
+                        <td>
+                          <img
+                            data-v-33fb9720=""
+                            src="https://filfox.info/dist/img/second.ab3c1e7.png"
+                            alt="2"
+                            class="image"
+                          />
+                        </td>
+                        <td>
+                            <a
+                            id=verified_2"
+                            class="filecoin-link text-filecoin"
+                            >
+                            </a>
+                        </td>
+                        <td>
+                          <div
+                            data-v-57a10158=""
+                            class="flex justify-center items-center max-w-full"
+                          >
+                            --
+                          </div>
+                        </td>
+                        <td>
+                          <div class="flex items-center justify-start">
+                            <div
+                              role="progressbar"
+                              aria-valuenow="90.18168185297799"
+                              aria-valuemin="0"
+                              aria-valuemax="100"
+                              class="
+                                el-progress
+                                flex
+                                w-1/2
+                                pr-3
+                                ml-8
+                                el-progress--line el-progress--without-text
+                              "
+                            >
+                              <div class="el-progress-bar">
+                                <div
+                                  class="el-progress-bar__outer"
+                                  style="height: 6px"
+                                >
+                                  <div
+                                    class="el-progress-bar__inner"
+                                    style="width: 90.1817%"
+                                  >
+                                    <!---->
+                                  </div>
+                                </div>
+                              </div>
+                              <!---->
+                            </div>
+                            <div>133.16  / 0.98%</div>
+                          </div>
+                        </td>
+                        <td>3,186.43 </td>
+                        <td>0.02 </td>
+                        <td>-64.00 </td>
+                      </tr>
+                      <tr class="border-b border-background h-10">
+                        <td>
+                          <img
+                            data-v-33fb9720=""
+                            src="https://filfox.info/dist/img/third.93fe8ab.png"
+                            alt="3"
+                            class="image"
+                          />
+                        </td>
+                        <td>
+                            <a
+                            id=verified_2"
+                            class="filecoin-link text-filecoin"
+                            >
+                            </a>
+                        </td>
+                        <td>
+                          <div
+                            data-v-57a10158=""
+                            class="flex justify-center items-center max-w-full"
+                          >
+                            --
+                          </div>
+                        </td>
+                        <td>
+                          <div class="flex items-center justify-start">
+                            <div
+                              role="progressbar"
+                              aria-valuenow="87.96160351575094"
+                              aria-valuemin="0"
+                              aria-valuemax="100"
+                              class="
+                                el-progress
+                                flex
+                                w-1/2
+                                pr-3
+                                ml-8
+                                el-progress--line el-progress--without-text
+                              "
+                            >
+                              <div class="el-progress-bar">
+                                <div
+                                  class="el-progress-bar__outer"
+                                  style="height: 6px"
+                                >
+                                  <div
+                                    class="el-progress-bar__inner"
+                                    style="width: 87.9616%"
+                                  >
+                                    <!---->
+                                  </div>
+                                </div>
+                              </div>
+                              <!---->
+                            </div>
+                            <div>129.89  / 0.95%</div>
+                          </div>
+                        </td>
+                        <td>3,628.38 </td>
+                        <td>0.03 </td>
+                        <td>-2.81 </td>
+                      </tr>
+                      <tr class="border-b border-background h-10">
+                        <td>
+                          <span
+                            data-v-33fb9720=""
+                            class="
+                              data-cell-1
+                              inline-block
+                              rounded-full
+                              px-1
+                              text-socialBg
+                              lg:bg-white lg:text-black lg:m-auto
+                              bg-background
+                            "
+                          >
+                          </span>
+                        </td>
+                        <td>
+                          <a
+                            
+                            class="filecoin-link text-filecoin"
+                            
+                            ></a
+                          >
+                        </td>
+                        <td>
+                          <div
+                            data-v-57a10158=""
+                            class="flex justify-center items-center max-w-full"
+                          >
+                            --
+                          </div>
+                        </td>
+                        <td>
+                          <div class="flex items-center justify-start">
+                            <div
+                              role="progressbar"
+                              aria-valuenow="77.95740392612029"
+                              aria-valuemin="0"
+                              aria-valuemax="100"
+                              class="
+                                el-progress
+                                flex
+                                w-1/2
+                                pr-3
+                                ml-8
+                                el-progress--line el-progress--without-text
+                              "
+                            >
+                              <div class="el-progress-bar">
+                                <div
+                                  class="el-progress-bar__outer"
+                                  style="height: 6px"
+                                >
+                                  <div
+                                    class="el-progress-bar__inner"
+                                    style="width: 77.9574%"
+                                  >
+                                    <!---->
+                                  </div>
+                                </div>
+                              </div>
+                              <!---->
+                            </div>
+                            <div>115.11  / 0.85%</div>
+                          </div>
+                        </td>
+                        <td>2,605.00 </td>
+                        <td>0.02 </td>
+                        <td>5.00 </td>
+                      </tr>
+                    </tbody>
+                    <div class="el-loading-mask" style="display: none">
+                      <div class="el-loading-spinner">
+                        <svg viewBox="25 25 50 50" class="circular">
+                          <circle
+                            cx="50"
+                            cy="50"
+                            r="20"
+                            fill="none"
+                            class="path"
+                          ></circle>
+                        </svg>
+                      </div>
+                    </div>
+                  </table>
+                </div>
+                <div class="m-auto text-center h-16">
+                  <a href="/en/ranks/power" class="mx-auto"
+                    ><button
+                      type="button"
+                      class="
+                        el-button el-button--default el-button--mini
+                        is-round
+                      "
+                    >
+                    <span> More </span>
+                    </button></a>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <br>
 
-          <div class="well">
-            <p class="text-muted">See also the <a href="https://web3modal.com/">TypeScript and React example application</a></p>
+          <!-- Footer -->
+          <div class="bg-footer px-4 xl:px-0 text-xs" data-v-3d9b4df4="">
+            <div class="container mx-auto">
+              <div class="mt-6">
+                <a
+                  href="https://stakewarriors.app/crowdsafe"
+                  aria-current="page"
+                  class="nuxt-link-exact-active nuxt-link-active"
+                  ><img
+                    src="../assets/CrowdWatch.png"
+                    alt="filFox.info"
+                    class="h-6"
+                /></a>
+              </div>
+              <div class="lg:flex lg:justify-between py-4">
+                <p class="text-footerText lg:flex-grow lg:w-4/5">
+                  CrowdWatch is a CrowdSafe registrar of users and smart
+                  contract data, providing one-stop data services based on
+                  CrowdSafe, including various safety rankings, scam alerts, and
+                  activity tracking.
+                </p>
+                <p
+                  class="
+                    text-footerText
+                    mt-4
+                    lg:mt-0
+                    lg:flex-grow-0
+                    lg:flex-shrink-0
+                    lg:ml-20
+                    lg:w-1/5
+                    lg:text-right
+                  "
+                >
+                  Contact: contact@stakewarriors.app
+                </p>
+              </div>
+              <footer
+                class="
+                  text-gray-300 text-opacity-25
+                  mx-auto
+                  border-t border-gray-300 border-opacity-25
+                  py-3
+                  px-6
+                  text-center
+                "
+              >
+                © 2021 StakeWarriors. All Rights Reserved. <br />
+              </footer>
+            </div>
           </div>
-
         </div>
       </div>
     </div>
-
-    <!-- We use simple <template> templating for the example -->
-    <div id="templates" style="display: none">
-      <template id="template-balance">
-        <tr>
-          <th class="address"></th>
-          <td class="balance"></td>
-        </tr>
-      </template>
-    </div>
-    <div class="container">
-      <h2></h2>
-      <p></p>            
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Firstname</th>
-            <th>Lastname</th>asda
-            <th>Email</th>
-          </tr>
-        </thead>
-        </tbody>
-      </table>
-    </div>
-    
-    
-
-    <!--
-
-      Use unpkg CDN to load all NPM packages to vanilla Javascript - read more at http://unpkg.com
-
-      On your deployment, you properly either want to use a preprocessing tool like webpack
-      to include these files, or extract NPM archives and manually host the files inside.
-
-      TODO: Pin down all versions.
-
-    -->
-
-    <script type="text/javascript" src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"></script>
-    <script type="text/javascript" src="https://unpkg.com/web3modal@1.9.0/dist/index.js"></script>
-    <script type="text/javascript" src="https://unpkg.com/evm-chains@0.2.0/dist/umd/index.min.js"></script>
-    <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>
-    <script type="text/javascript" src="https://unpkg.com/fortmatic@2.0.6/dist/fortmatic.js"></script>
-
-    <!-- This is our example code -->
-    <script type="text/javascript" src="./modal.js"></script>
+    <link rel="stylesheet" href="https://filfox.info/dist/css/a5a40dc.css" />
+    <link rel="stylesheet" href="https://filfox.info/dist/css/f11441d.css" />
+    <link rel="stylesheet" href="https://filfox.info/dist/css/d48f0ff.css" />
+    <link rel="stylesheet" href="https://filfox.info/dist/css/9f9ac21.css" />
+    <link rel="stylesheet" href="https://filfox.info/dist/css/81e400e.css" />
   </body>
 </html>
