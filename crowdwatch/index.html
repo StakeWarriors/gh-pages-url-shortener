@@ -1,0 +1,1054 @@
+<html lang="en-US">
+  <head>
+    <title>CrowdWatch - CrowdSafe registrar</title>
+    <meta data-n-head="ssr" charset="utf-8" />
+    <meta
+      data-n-head="ssr"
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <meta
+      data-n-head="ssr"
+      s
+      name="keywords"
+      content="CrowdWatch, CrowdSafe, StakeWarriors, CrowdSafe Registrar, VERIFY, 5WARS"
+    />
+    <meta
+      data-n-head="ssr"
+      name="description"
+      content="CrowdWatch is a CrowdSafe registrar of users and smart contract data, providing one-stop data services based on CrowdSafe, including various safety rankings, scam alerts, and activity tracking."
+    />
+    <meta data-n-head="ssr" name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      data-n-head="ssr"
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta
+      data-n-head="ssr"
+      name="apple-mobile-web-app-title"
+      content="CloudWatch"
+    />
+    <meta data-n-head="ssr" name="mobile-web-app-capable" content="yes" />
+    <meta data-n-head="ssr" name="theme-color" content="#1a4fc9" />
+    <meta data-n-head="ssr" name="application-name" content="CloudWatch" />
+    <link
+      data-n-head="ssr"
+      rel="manifest"
+      href="https://filfox.info/dist/manifest.210c225a.json"
+    />
+    <link data-n-head="ssr" rel="icon" href="../favicon.ico" />
+    <link
+      data-n-head="ssr"
+      rel="apple-touch-icon"
+      href="../favicon.ico"
+      sizes="512x512"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <link rel="stylesheet" href="https://filfox.info/dist/css/f11441d.css" />
+    <link rel="stylesheet" href="https://filfox.info/dist/css/a5a40dc.css" />
+    <link rel="stylesheet" href="https://filfox.info/dist/css/c3c57f4.css" />
+    <link rel="stylesheet" href="https://filfox.info/dist/css/f11441d.css" />
+    <link rel="stylesheet" href="https://filfox.info/dist/css/a5a40dc.css" />
+    <link rel="stylesheet" href="https://filfox.info/dist/css/d48f0ff.css" />
+    <link rel="stylesheet" href="https://filfox.info/dist/css/9f9ac21.css" />
+    <link rel="stylesheet" href="https://filfox.info/dist/css/81e400e.css" />
+    <link
+      data-n-head="ssr"
+      data-hid="i18n-alt-en"
+      rel="alternate"
+      href="/en"
+      hreflang="en"
+    />
+    <link
+      data-n-head="ssr"
+      data-hid="i18n-alt-en-US"
+      rel="alternate"
+      href="/en"
+      hreflang="en-US"
+    />
+    <link
+      data-n-head="ssr"
+      data-hid="i18n-alt-zh"
+      rel="alternate"
+      href="/zh"
+      hreflang="zh"
+    />
+    <link
+      data-n-head="ssr"
+      data-hid="i18n-alt-zh-CN"
+      rel="alternate"
+      href="/zh"
+      hreflang="zh-CN"
+    />
+    <link
+      data-n-head="ssr"
+      data-hid="i18n-alt-ko_KR"
+      rel="alternate"
+      href="/ko"
+      hreflang="ko_KR"
+    />
+    <link
+      data-n-head="ssr"
+      data-hid="i18n-xd"
+      rel="alternate"
+      href="/en"
+      hreflang="x-default"
+    />
+    <link data-n-head="ssr" data-hid="i18n-can" rel="canonical" href="/en" />
+    <meta
+      data-n-head="ssr"
+      data-hid="i18n-og"
+      property="og:locale"
+      content="en_US"
+    />
+    <meta
+      data-n-head="ssr"
+      data-hid="i18n-og-alt-zh-CN"
+      property="og:locale:alternate"
+      content="zh_CN"
+    />
+    <meta
+      data-n-head="ssr"
+      data-hid="i18n-og-alt-ko_KR"
+      property="og:locale:alternate"
+      content="ko_KR"
+    />
+    <style>
+      body {
+        filter: invert(1) hue-rotate(180deg) contrast(0.95);
+      }
+      .bg-footer {
+        background-color: #fafafa !important;
+      }
+      .bg-footer img {
+        filter: invert(1);
+      }
+      .bg-footer p {
+        color: #3a3a4f !important;
+      }
+      .bg-footer footer {
+        color: #6a6a6f;
+      }
+      .text-background {
+        color: black;
+        font-weight: bold;
+      }
+      .highest {
+        display: flex;
+        justify-content: center;
+      }
+      img.image {
+        filter: invert(1) hue-rotate(180deg) contrast(0.95);
+      }
+      .flex-group > div.flex {
+        display: flex;
+        justify-content: center;
+      }
+      .flex-group div.flex div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body data-new-gr-c-s-check-loaded="14.1038.0" data-gr-ext-installed="">
+    <div id="__nuxt">
+      <!---->
+      <div id="__layout">
+        <div
+          class="flex flex-col min-h-screen bg-background"
+          data-v-3d9b4df4=""
+        >
+          <nav class="mx-auto bg-main h-28 w-full" data-v-3d9b4df4="">
+            <div
+              class="
+                flex
+                h-16
+                container
+                mx-auto
+                items-center
+                lg:pt-2
+                justify-between
+              "
+            >
+              <a
+                href="/en"
+                aria-current="page"
+                class="
+                  flex
+                  items-center
+                  lg:-ml-4
+                  px-1
+                  lg:px-4
+                  nuxt-link-exact-active nuxt-link-active
+                "
+                ><img
+                  style="filter: invert(1)"
+                  src="../assets/CrowdWatch.png"
+                  alt="CrowdWatch"
+                  class="h-6 lg:h-8"
+              /></a>
+              <div
+                class="
+                  lg:hidden
+                  mx-3
+                  md:mx-8
+                  flex-1
+                  el-input el-input--mini el-input--suffix
+                "
+              >
+                <input
+                  type="text"
+                  autocomplete="off"
+                  placeholder="Search for Contract/Account/Token..."
+                  class="el-input__inner"
+                />
+                <span class="el-input__suffix"
+                  ><span class="el-input__suffix-inner"
+                    ><i class="el-input__icon el-icon-search"></i></span
+                ></span>
+              </div>
+              <div class="flex items-center">
+                <div class="hidden lg:flex items-center mr-6">
+                  <!---->
+                  <p class="text-white text-sm mr-1">Current network:</p>
+                  <span class="text-background text-sm">Mainnet</span>
+                </div>
+              </div>
+            </div>
+            <div class="container flex h-12 mx-auto px-0 hidden lg:flex">
+              <a
+                href="https://stakewarriors.app/crowdsafe"
+                aria-current="page"
+                class="
+                  flex
+                  items-center
+                  mr-2
+                  xl:mr-3
+                  px-2
+                  nuxt-link-exact-active nuxt-link-active
+                "
+                ><div class="text-background text-sm">Home</div></a
+              >
+              <a disabled class="disabled flex items-center mx-2 xl:mx-3 px-2"
+                ><div
+                  style="color: #a9a9a9; cursor: initial"
+                  class="text-background text-sm"
+                >
+                  Submit a Report
+                </div></a
+              >
+              <div class="flex items-center mx-2 xl:mx-3 el-dropdown">
+                <span
+                  class="
+                    el-dropdown-link
+                    px-2
+                    text-background text-sm
+                    el-dropdown-selfdefine
+                  "
+                  aria-haspopup="list"
+                  aria-controls="dropdown-menu-9194"
+                  role="button"
+                  tabindex="0"
+                >
+                  <a
+                    href="https://polygonscan.com/address/0x28B97a68D53cfBEa6313b588255af4F53a0A7754#readProxyContract"
+                  >
+                    Contract
+                  </a>
+                </span>
+              </div>
+              <div class="flex-grow"></div>
+              <div
+                class="
+                  flex
+                  items-center
+                  xl:w-2/5
+                  el-input el-input--small el-input--suffix
+                  lg:w-1/3
+                "
+              >
+                <input
+                  type="text"
+                  autocomplete="off"
+                  placeholder="Search for Token/Address/Account..."
+                  class="el-input__inner"
+                /><span class="el-input__suffix"
+                  ><span class="el-input__suffix-inner"
+                    ><i class="el-input__icon el-icon-search"></i></span
+                ></span>
+              </div>
+            </div>
+          </nav>
+          <div class="container mx-auto relative flex-grow" data-v-3d9b4df4="">
+            <div>
+              <div class="my-2 lg:my-4" data-v-78f2be95="">
+                <div
+                  class="
+                    bg-white
+                    flex
+                    justify-between
+                    items-center
+                    h-10
+                    lg:h-12
+                    border-b border-background
+                    lg:rounded-t-md
+                  "
+                  data-v-78f2be95=""
+                >
+                  <div
+                    class="flex items-center h-10 lg:h-12 pl-4"
+                    data-v-58683e44=""
+                    data-v-78f2be95=""
+                  >
+                    <img
+                      src="https://filfox.info/dist/img/overview.37017bf.svg"
+                      alt="icon"
+                      class="image"
+                      data-v-58683e44=""
+                    />
+                    <div class="ml-2 text-sm lg:text-base" data-v-58683e44="">
+                      Monitor Overview
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="bg-white px-4 pt-4 lg:p-4 lg:rounded-b-md"
+                  data-v-78f2be95=""
+                >
+                  <div
+                    class="
+                      grid grid-flow-row grid-cols-2
+                      lg:grid-cols-5
+                      gap-2
+                      mb-4
+                      lg:gap-4
+                      overview-list
+                      flex-group
+                    "
+                    data-v-78f2be95=""
+                  >
+                    <div
+                      class="flex items-center rounded-sm bg-background"
+                      data-v-78f2be95=""
+                    >
+                      <div class="mt-2 lg:mt-8 mb-2 lg:mb-6 lg:mx-auto px-2">
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle">
+                            Number of Scams Reported
+                          </span>
+                        </div>
+                        <div
+                          id="getReportedScamsLength"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex items-center rounded-sm bg-background"
+                      data-v-78f2be95=""
+                    >
+                      <div class="mt-2 lg:mt-8 mb-2 lg:mb-6 lg:mx-auto px-2">
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle">
+                            Count of Users Reporting Scams
+                          </span>
+                        </div>
+                        <div
+                          id="getScamReportersLength"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div
+                      class="flex items-center rounded-sm bg-background"
+                      data-v-78f2be95=""
+                    >
+                      <div class="mt-2 lg:mt-8 mb-2 lg:mb-6 lg:mx-auto px-2">
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle">
+                            Number of Safe Addresses Reported
+                          </span>
+                        </div>
+                        <div
+                          id="getReportedSafeLength"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex items-center rounded-sm bg-background"
+                      data-v-78f2be95=""
+                    >
+                      <div class="mt-2 lg:mt-8 mb-2 lg:mb-6 lg:mx-auto px-2">
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle">
+                            Number of Addresses Labeled Safe
+                          </span>
+                        </div>
+                        <div
+                          id="getSafeReportersLength"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex items-center rounded-sm bg-background"
+                      data-v-78f2be95=""
+                    >
+                      <div class="mt-2 lg:mt-8 mb-2 lg:mb-6 lg:mx-auto px-2">
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle"> Total Value Locked </span>
+                        </div>
+                        <div
+                          id="tvl"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="
+                      grid grid-flow-row grid-cols-2
+                      lg:grid-cols-4
+                      gap-2
+                      lg:gap-4
+                      overview-list
+                      flex-group
+                    "
+                    data-v-78f2be95=""
+                  >
+                    <div
+                      class="flex items-center rounded-sm bg-background mb-2"
+                      data-v-78f2be95=""
+                    >
+                      <div class="mt-2 lg:mt-8 mb-2 lg:mb-6 lg:mx-auto px-2">
+                        <span class="align-middle highest"
+                          >Highest Scam Score
+                        </span>
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle"> Address </span>
+                        </div>
+                        <div
+                          id="highestScamAddress"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        ></div>
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle"> Level </span>
+                        </div>
+                        <div
+                          id="highestScamLevel"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        ></div>
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle"> Awareness </span>
+                        </div>
+                        <div
+                          id="highestScamAwareness"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                    <!---->
+                    <div
+                      class="flex items-center rounded-sm bg-background mb-2"
+                      data-v-78f2be95=""
+                    >
+                      <div class="mt-2 lg:mt-8 mb-2 lg:mb-6 lg:mx-auto px-2">
+                        <span class="align-middle highest"
+                          >Highest Safety Score
+                        </span>
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle"> Address </span>
+                        </div>
+                        <div
+                          id="highestSafetyAddress"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        ></div>
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle"> Level </span>
+                        </div>
+                        <div
+                          id="highestSafetyLevel"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        ></div>
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle"> Awareness </span>
+                        </div>
+                        <div
+                          id="highestSafetyAwareness"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                    <!---->
+                    <div
+                      class="mb-2 flex items-center rounded-sm bg-background"
+                      data-v-78f2be95=""
+                    >
+                      <div
+                        class="mt-2 lg:mt-8 mb-2 lg:mb-6 lg:mx-auto px-2 </div>"
+                      >
+                        <span class="align-middle highest"
+                          >Newest Scam Score
+                        </span>
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle"> Address </span>
+                        </div>
+                        <div
+                          id="newestScamAddress"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        ></div>
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle"> Level </span>
+                        </div>
+                        <div
+                          id="newestScamLevel"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        ></div>
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle"> Awareness </span>
+                        </div>
+                        <div
+                          id="newestScamAwareness"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                    <!---->
+                    <div
+                      class="mb-2 flex items-center rounded-sm bg-background"
+                      data-v-78f2be95=""
+                    >
+                      <div class="mt-2 lg:mt-8 mb-2 lg:mb-6 lg:mx-auto px-2">
+                        <span class="align-middle highest"
+                          >Newest Safety Score
+                        </span>
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle"> Address </span>
+                        </div>
+                        <div
+                          id="newestSafetyAddress"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        ></div>
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle"> Level </span>
+                        </div>
+                        <div
+                          id="newestSafetyLevel"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        ></div>
+                        <div
+                          class="
+                            text-left
+                            lg:text-center
+                            text-xs text-gray-500
+                            lg:mx-auto
+                          "
+                        >
+                          <span class="align-middle"> Awareness </span>
+                        </div>
+                        <div
+                          id="newestSafetyAwareness"
+                          class="
+                            text-left
+                            lg:text-center
+                            text-sm
+                            lg:text-2xl
+                            items-start
+                            lg:mx-auto
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TOP VERIFIED -->
+              <!--SMALL CHART -->
+              <div class="mb-2 bg-white lg:hidden">
+                <div>
+                  <div class="flex justify-between items-center">
+                    <div
+                      class="flex items-center h-10 lg:h-12 pl-4"
+                      data-v-58683e44=""
+                    >
+                      <img
+                        src="https://filfox.info/dist/img/miner-ranks.9f8b0de.svg"
+                        alt="icon"
+                        class="image"
+                        data-v-58683e44=""
+                      />
+                      <div class="ml-2 text-sm lg:text-base" data-v-58683e44="">
+                        Top Verified
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="sm-top-ver-container">
+                  <div class="flex bg-mobileHeader text-xs px-4">
+                    <div class="w-1/8">Rank</div>
+                    <div class="w-3/8">Address</div>
+                    <div class="w-1/2 text-right">Combined Score</div>
+                  </div>
+                </div>
+                <!-- <div class="flex items-center h-12">
+                  <a href="/en/ranks/power" class="m-auto"
+                    ><button
+                      type="button"
+                      class="el-button el-button--text el-button--mini"
+                    >
+                    <span> More </span>
+                    </button></a
+                  >
+                </div> -->
+              </div>
+              <!--BIG CHART -->
+              <div class="mb-4 bg-white rounded-md hidden lg:block">
+                <div class="border-b border-background">
+                  <div
+                    class="flex items-center h-10 lg:h-12 pl-4"
+                    data-v-58683e44=""
+                  >
+                    <img
+                      src="https://filfox.info/dist/img/miner-ranks.9f8b0de.svg"
+                      alt="icon"
+                      class="image"
+                      data-v-58683e44=""
+                    />
+                    <div class="ml-2 text-sm lg:text-base" data-v-58683e44="">
+                      Top Verified
+                    </div>
+                  </div>
+                </div>
+                <div class="px-4 mt-3 mb-5">
+                  <table class="table-fixed w-full">
+                    <thead class="text-gray-600 text-sm m-2">
+                      <tr>
+                        <th class="w-1/12">Rank</th>
+                        <th class="w-1/12">Address</th>
+                        <th class="w-1/10">ENS</th>
+                        <th class="w-4/15">Safe / Scam Ratio</th>
+                        <th class="w-1/10"># of Reporters</th>
+                        <th class="w-1/10">
+                          <div class="flex justify-center items-center">
+                            Scam Level
+                          </div>
+                        </th>
+                        <th class="w-1/10">
+                          <div class="flex justify-center items-center">
+                            Safe Level
+                          </div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody
+                      class="text-sm text-center"
+                      id="lg-top-ver-container"
+                    ></tbody>
+                  </table>
+                </div>
+                <!-- <div class="m-auto text-center h-16">
+                  <a href="/en/ranks/power" class="mx-auto"
+                    ><button
+                      type="button"
+                      class="
+                        el-button el-button--default el-button--mini
+                        is-round
+                      "
+                    >
+                    <span> More </span>
+                    </button></a>
+                </div> -->
+              </div>
+
+              <!-- TOP SCAMS -->
+              <!--SMALL CHART -->
+              <div class="mb-2 bg-white lg:hidden">
+                <div>
+                  <div class="flex justify-between items-center">
+                    <div
+                      class="flex items-center h-10 lg:h-12 pl-4"
+                      data-v-58683e44=""
+                    >
+                      <img
+                        src="https://filfox.info/dist/img/miner-ranks.9f8b0de.svg"
+                        alt="icon"
+                        class="image"
+                        data-v-58683e44=""
+                      />
+                      <div class="ml-2 text-sm lg:text-base" data-v-58683e44="">
+                        Top Scams
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="sm-top-ver-container">
+                  <div class="flex bg-mobileHeader text-xs px-4">
+                    <div class="w-1/8">Rank</div>
+                    <div class="w-3/8">Address</div>
+                    <div class="w-1/2 text-right">Combined Score</div>
+                  </div>
+                </div>
+                <!-- <div class="flex items-center h-12">
+                  <a href="/en/ranks/power" class="m-auto"
+                    ><button
+                      type="button"
+                      class="el-button el-button--text el-button--mini"
+                    >
+                    <span> More </span>
+                    </button></a
+                  >
+                </div> -->
+              </div>
+              <!--BIG CHART -->
+              <div class="mb-4 bg-white rounded-md hidden lg:block">
+                <div class="border-b border-background">
+                  <div
+                    class="flex items-center h-10 lg:h-12 pl-4"
+                    data-v-58683e44=""
+                  >
+                    <img
+                      src="https://filfox.info/dist/img/miner-ranks.9f8b0de.svg"
+                      alt="icon"
+                      class="image"
+                      data-v-58683e44=""
+                    />
+                    <div class="ml-2 text-sm lg:text-base" data-v-58683e44="">
+                      Top Scams
+                    </div>
+                  </div>
+                </div>
+                <div class="px-4 mt-3 mb-5">
+                  <table class="table-fixed w-full">
+                    <thead class="text-gray-600 text-sm m-2">
+                      <tr>
+                        <th class="w-1/12">Rank</th>
+                        <th class="w-1/12">Address</th>
+                        <th class="w-1/10">ENS</th>
+                        <th class="w-4/15">Safe / Scam Ratio</th>
+                        <th class="w-1/10"># of Reporters</th>
+                        <th class="w-1/10">
+                          <div class="flex justify-center items-center">
+                            Scam Level
+                          </div>
+                        </th>
+                        <th class="w-1/10">
+                          <div class="flex justify-center items-center">
+                            Safe Level
+                          </div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody
+                      id="lg-top-scam-container"
+                      class="text-sm text-center"
+                    ></tbody>
+                  </table>
+                </div>
+                <!-- <div class="m-auto text-center h-16">
+                  <a href="/en/ranks/power" class="mx-auto"
+                    ><button
+                      type="button"
+                      class="
+                        el-button el-button--default el-button--mini
+                        is-round
+                      "
+                    >
+                    <span> More </span>
+                    </button></a>
+                </div> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="bg-footer px-4 xl:px-0 text-xs" data-v-3d9b4df4="">
+            <div class="container mx-auto">
+              <div class="mt-6">
+                <a
+                  href="https://stakewarriors.app/crowdsafe"
+                  aria-current="page"
+                  class="nuxt-link-exact-active nuxt-link-active"
+                  ><img
+                    src="../assets/CrowdWatch.png"
+                    alt="filFox.info"
+                    class="h-6"
+                /></a>
+              </div>
+              <div class="lg:flex lg:justify-between py-4">
+                <p class="text-footerText lg:flex-grow lg:w-4/5">
+                  CrowdWatch is a CrowdSafe registrar of users and smart
+                  contract data, providing one-stop data services based on
+                  CrowdSafe, including various safety rankings, scam alerts, and
+                  activity tracking.
+                </p>
+                <p
+                  class="
+                    text-footerText
+                    mt-4
+                    lg:mt-0
+                    lg:flex-grow-0
+                    lg:flex-shrink-0
+                    lg:ml-20
+                    lg:w-1/5
+                    lg:text-right
+                  "
+                >
+                  Contact: contact@stakewarriors.app
+                </p>
+              </div>
+              <footer
+                class="
+                  text-gray-300 text-opacity-25
+                  mx-auto
+                  border-t border-gray-300 border-opacity-25
+                  py-3
+                  px-6
+                  text-center
+                "
+              >
+                © 2021 StakeWarriors. All Rights Reserved. <br />
+              </footer>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <link rel="stylesheet" href="https://filfox.info/dist/css/a5a40dc.css" />
+    <link rel="stylesheet" href="https://filfox.info/dist/css/f11441d.css" />
+    <link rel="stylesheet" href="https://filfox.info/dist/css/d48f0ff.css" />
+    <link rel="stylesheet" href="https://filfox.info/dist/css/9f9ac21.css" />
+    <link rel="stylesheet" href="https://filfox.info/dist/css/81e400e.css" />
+  </body>
+  <script src="./rowTemplater.js"></script>
+  <script src="./CloudSafeReports.js"></script>
+</html>
