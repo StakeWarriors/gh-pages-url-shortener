@@ -20,7 +20,7 @@ function createLarge(index, address, ens, ratio, numReporters, scamLevel, safeLe
                     <img
                         data-v-33fb9720=""
                         src=${crown}
-                        alt="1"
+                        alt="${index}"
                         class="image"
                     />
                 </td>`;
@@ -100,8 +100,8 @@ function createSmall(index, address, score) {
         }
         rank = `<img
                     data-v-33fb9720=""
-                    src="https://filfox.info/dist/img/first.f20f1e6.png"
-                    alt="1"
+                    src="${crown}"
+                    alt="${index}"
                     class="image"/>`;
     } else {
         rank = `
