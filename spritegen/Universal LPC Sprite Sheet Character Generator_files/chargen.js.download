@@ -8,9 +8,6 @@ $.expr[':'].icontains = function(a, i, m) {
 $(document).ready(function() {
 
   var params = jHash.val();
-  var sheetCredits = [];
-  const creditColumns = "filename,notes,authors,licenses,url1,url2,url3,url4,url5,status";
-  const parsedCredits = loadFile("CREDITS.csv").split("\n");
 
   var canvas = $("#spritesheet").get(0);
   var ctx = canvas.getContext("2d");
@@ -46,27 +43,6 @@ $(document).ready(function() {
   redraw();
   showOrHideElements();
   nextFrame();
-
-  $("input[type=radio]").attr('title', function() {
-    var name = "";
-    if ($(this).data(`layer_1_${getBodyTypeName()}`)) {
-      name = $(this).data(`layer_1_${getBodyTypeName()}`);
-    }
-    if (name === "") {
-      return "";
-    }
-    const creditEntry = getCreditFor(name);
-    if (creditEntry) {
-      let parts = splitCsv(creditEntry);
-      if (parts.length == 10) {
-        return "Created by: " + parts[2];
-      }
-    } else {
-      console.warn("No credit entry for: ", name);
-      return "No credits found for this graphic";
-    }
-    return creditEntry;
-  });
 
   // set params and redraw when any radio button is clicked on
   $("input[type=radio]").each(function() {
@@ -121,11 +97,6 @@ $(document).ready(function() {
     $('#chooser').toggleClass('compact')
   })
 
-  $('#scroll-to-credits').click(function(e) {
-    $('#credits')[0].scrollIntoView()
-    e.preventDefault();
-  })
-
   $("#previewFile").change(function() {
     previewFile();
   });
@@ -170,48 +141,6 @@ $(document).ready(function() {
       }
     }
     ctx.putImageData(imgData, 0, 0);
-  });
-
-  $(".generateSheetCreditsCsv").click(function() {
-    let bl = new Blob([sheetCredits.join('\n')], {
-      type: "text/html"
-    });
-    let a = document.createElement("a");
-    a.href = URL.createObjectURL(bl);
-    a.download = "sheet-credits.csv";
-    a.hidden = true;
-    document.body.appendChild(a);
-    a.innerHTML = "dummyhtml";
-    a.click();
-    document.removeChild(a);
-  });
-
-  $(".generateSheetCreditsTxt").click(function() {
-    let bl = new Blob([sheetCreditsToTxt()], {
-      type: "text/html"
-    });
-    let a = document.createElement("a");
-    a.href = URL.createObjectURL(bl);
-    a.download = "sheet-credits.txt";
-    a.hidden = true;
-    document.body.appendChild(a);
-    a.innerHTML = "dummyhtml";
-    a.click();
-    document.removeChild(a);
-  });
-
-  $(".generateAllCredits").click(function() {
-    let bl = new Blob([parsedCredits.join('\n')], {
-      type: "text/html"
-    });
-    let a = document.createElement("a");
-    a.href = URL.createObjectURL(bl);
-    a.download = "all-credits.csv";
-    a.hidden = true;
-    document.body.appendChild(a);
-    a.innerHTML = "dummyhtml";
-    a.click();
-    document.removeChild(a);
   });
 
   $("#whichAnim").change(function() {
@@ -280,45 +209,7 @@ $(document).ready(function() {
     setParams();
   }
 
-  function getCreditFor(fileName) {
-    if (fileName !== "") {
-      for (let creditEntry of parsedCredits) {
-        if (creditEntry.startsWith(fileName)) {
-          return creditEntry;
-        }
-      };
-    }
-  }
 
-  function addCreditFor(fileName) {
-    if (fileName !== "") {
-      let creditEntry = getCreditFor(fileName);
-      if (!creditEntry) {
-        sheetCredits.push(fileName+",!MISSING LICENSE INFORMATION! PLEASE CORRECT MANUALY AND REPORT BACK VIA A GITHUB ISSUE,,,,,,,,BAD");
-      } else {
-        sheetCredits.push(creditEntry);
-      }
-    }
-    displayCredits();
-  }
-
-  function sheetCreditsToTxt() {
-    let csv = parseCSV(sheetCredits.join('\n'))
-    let authors = csv.slice(1).map((row) => row[2].split(",").map((au) => au.trim())).flat()
-    authors = [...new Set(authors)]
-
-    let out = csv.slice(1).map(function(row) {
-      let urls = row.slice(4,9)
-        .filter(function (x) { return !!x })
-        .map(function (x) { return "    - " + x})
-      return [`- ${row[0]}: by ${row[2]}. License(s): ${row[3]}. ${row[1]}`].concat(urls).join("\n")
-    })
-    return "Authors: " + authors.join(", ")+"\n\n"+out.join("\n\n")
-  }
-
-  function displayCredits() {
-    $("textarea#creditsText").val(sheetCreditsToTxt());
-  }
 
   function previewFile(){
     var preview = document.querySelector('img'); //selects the query named img
@@ -357,7 +248,6 @@ $(document).ready(function() {
     let itemsToDraw = [];
     const bodyTypeName = getBodyTypeName();
 
-    sheetCredits = [creditColumns];
     zPosition = 0;
     $("input[type=radio]:checked").each(function(index) {
       for (jdx =1; jdx < 10; jdx++) {
@@ -370,7 +260,6 @@ $(document).ready(function() {
             itemToDraw.fileName = fileName;
             itemToDraw.zPos = zPos;
             itemToDraw.oversize = oversize;
-            addCreditFor(fileName);
             itemsToDraw.push(itemToDraw);
           }
         } else {
