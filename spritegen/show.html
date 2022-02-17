@@ -16,9 +16,662 @@
 </head>
 
 <body>
+	<form id="customizeChar" style="display:hidden">
+		<div id="controls">
+			<h1>Universal LPC Spritesheet Generator</h1>
+			<p>Free/Libre pixel art sprites from the <a href="lpc.opengameart.org">Liberated Pixel Cup</a> and <a href="https://opengameart.org/content/lpc-collection">OpenGameArt.org</a>. License: <a
+					href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA 3.0</a>. You must <a id="scroll-to-credits" href="#">credit the authors of this artwork.</a></p>
+			<div>
+				<label class="control-label">Download:</label>
+				<a id="saveAsPNG"><input type="button" value="Image (PNG)"></a>
+				<button type="button" class="generateSheetCreditsTxt">Credits (text)</button>
+				<button type="button" class="generateSheetCreditsCsv">Credits (CSV)</button>
+			</div>
+			<div>
+				<label class="control-label">Edit:</label>
+				<button type="button" id="resetAll">Reset all</button>
+				<button type="button" class="replacePinkMask">Replace Mask (pink)</button>
+			</div>
+			<div>
+				<label class="control-label">View:</label>
+				<button type="button" id="collapse">Collapse All</button>
+				<button type="button" id="expand">Expand Selected</button>
+				<label for="displayMode-compact"><input type="checkbox" name="displayMode" value="compact" id="displayMode-compact"> Compact Display</label>
+			</div>
+			<div>
+				<label class="control-label" for="searchbox">Search: </label><input type="search" id="searchbox" name="" placeholder="Search" />
+			</div>
+		</div>
+		<section id="chooser">
+			<h3>Body</h3>
+			<ul>
+				<li>
+					<!-- Body types -->
+					<span class="expanded">Body type</span>
+					<ul style="display:block;">
+						<li class="noPreview">
+							<input type="radio" id="sex-male" name="sex" checked>
+							<label for="sex-male">Male</label>
+						</li>
+						<li class="noPreview">
+							<input type="radio" id="sex-female" name="sex">
+							<label for="sex-female">Female</label>
+						</li>
+						<li class="noPreview">
+							<input type="radio" id="sex-child" name="sex">
+							<label for="sex-child">Child</label>
+						</li>
+						<li class="noPreview">
+							<input type="radio" id="sex-pregnant" name="sex">
+							<label for="sex-pregnant">Pregnant</label>
+						</li>
+						<li class="noPreview">
+							<input type="radio" id="sex-muscular" name="sex">
+							<label for="sex-muscular">Muscular</label>
+						</li>
+					</ul>
+				</li>
+
+				<!-- Shadow -->
+				<div id="sheet_shadow"></div>
+
+				<!-- Bodies -->
+				<li>
+					<span class="condensed">Body</span>
+					<ul>
+						<div id="sheet_body_human"></div>
+						<div id="sheet_body_reptile"></div>
+						<div id="sheet_body_orc"></div>
+						<div id="sheet_body_boarman"></div>
+						<div id="sheet_body_wolfman"></div>
+						<div id="sheet_body_skeleton"></div>
+						<div id="sheet_body_pregnant"></div>
+						<div id="sheet_body_muscular"></div>
+						<div id="sheet_body_special"></div>
+						<div id="sheet_body_child"></div>
+					</ul>
+				</li>
+
+				<!-- Wounds -->
+				<li data-required="male,female,muscular,pregnant">
+					<span class="condensed">Wounds</span>
+					<ul>
+						<div id="sheet_wound_arm"></div>
+						<div id="sheet_wound_brain"></div>
+						<div id="sheet_wound_ribs"></div>
+						<div id="sheet_wound_eye"></div>
+						<div id="sheet_wound_mouth"></div>
+					</ul>
+				</li>
+
+				<li data-required="male,female,muscular,pregnant">
+					<span class="condensed">Prostheses</span>
+					<ul>
+						<div id="sheet_prosthesis_hook"></div>
+						<div id="sheet_prosthesis_peg_leg"></div>
+					</ul>
+				</li>
+
+			</ul>
+			<h3>Head</h3>
+			<ul>
+
+				<!-- Ears -->
+				<li>
+					<span class="condensed">Ears</span>
+					<ul>
+						<div id="sheet_head_ears_big"></div>
+						<div id="sheet_head_ears_elven"></div>
+					</ul>
+				</li>
+
+				<!-- Nose -->
+				<li>
+					<span class="condensed">Nose</span>
+					<ul>
+						<div id="sheet_head_nose_big"></div>
+						<div id="sheet_head_nose_button"></div>
+						<div id="sheet_head_nose_straight"></div>
+					</ul>
+				</li>
+
+
+				<!-- Eyes -->
+				<div id="sheet_eyes"></div>
+
+				<!-- Beards -->
+				<li data-required="male,muscular">
+					<span class="condensed">Beards</span>
+					<ul>
+						<div id="sheet_beards_beard"></div>
+						<div id="sheet_beards_bigstache"></div>
+						<div id="sheet_beards_mustache"></div>
+						<div id="sheet_beards_winter"></div>
+					</ul>
+				</li>
+
+				<!-- Hair -->
+				<li>
+					<span class="condensed">Hair</span>
+					<ul>
+						<li><span class="condensed">afro</span>
+							<ul>
+								<div id="sheet_hair_afro"></div>
+								<div id="sheet_hair_natural"></div>
+								<div id="sheet_hair_dreadlocks_short"></div>
+								<div id="sheet_hair_twists_fade"></div>
+								<div id="sheet_hair_twists_straight"></div>
+								<div id="sheet_hair_dreadlocks_long"></div>
+								<div id="sheet_hair_flat_top_straight"></div>
+								<div id="sheet_hair_flat_top_fade"></div>
+								<div id="sheet_hair_cornrows"></div>
+							</ul>
+						</li>
+						<li><span class="condensed">curly</span>
+							<ul>
+								<div id="sheet_hair_jewfro"></div>
+								<div id="sheet_hair_curly_short"></div>
+								<div id="sheet_hair_curly_long"></div>
+							</ul>
+						</li>
+						<li><span class="condensed">bald/shaved</span>
+							<ul>
+								<div id="sheet_hair_balding"></div>
+								<div id="sheet_hair_longhawk"></div>
+								<div id="sheet_hair_shorthawk"></div>
+								<div id="sheet_hair_high_and_tight"></div>
+								<div id="sheet_hair_buzzcut"></div>
+							</ul>
+						</li>
+						<li><span class="condensed">short</span>
+							<ul>
+								<div id="sheet_hair_plain"></div>
+								<div id="sheet_hair_pixie"></div>
+								<div id="sheet_hair_page"></div>
+								<div id="sheet_hair_idol"></div>
+								<div id="sheet_hair_mop"></div>
+								<div id="sheet_hair_parted"></div>
+								<div id="sheet_hair_part2"></div>
+								<div id="sheet_hair_messy2"></div>
+								<div id="sheet_hair_messy3"></div>
+								<div id="sheet_hair_messy1"></div>
+								<div id="sheet_hair_bedhead"></div>
+								<div id="sheet_hair_unkempt"></div>
+								<div id="sheet_hair_bangsshort"></div>
+								<div id="sheet_hair_swoop"></div>
+								<div id="sheet_hair_curtains"></div>
+								<div id="sheet_hair_page2"></div>
+								<div id="sheet_hair_bangs"></div>
+								<div id="sheet_hair_single"></div>
+								<div id="sheet_hair_cowlick"></div>
+								<div id="sheet_hair_cowlick_tall"></div>
+							</ul>
+						</li>
+						<li><span class="condensed">spiky</span>
+							<ul>
+								<div id="sheet_hair_spiked_porcupine"></div>
+								<div id="sheet_hair_spiked_liberty2"></div>
+								<div id="sheet_hair_spiked_liberty"></div>
+								<div id="sheet_hair_spiked_beehive"></div>
+								<div id="sheet_hair_spiked"></div>
+								<div id="sheet_hair_spiked2"></div>
+								<div id="sheet_hair_halfmessy"></div>
+							</ul>
+						</li>
+						<li><span class="condensed">pigtails</span>
+							<ul>
+								<div id="sheet_hair_bunches"></div>
+								<div id="sheet_hair_pigtails"></div>
+								<div id="sheet_hair_pigtails_bangs"></div>
+							</ul>
+						</li>
+						<li><span class="condensed">bob</span>
+							<ul>
+								<div id="sheet_hair_bob"></div>
+								<div id="sheet_hair_lob"></div>
+								<div id="sheet_hair_bob_side_part"></div>
+							</ul>
+						</li>
+						<li><span class="condensed">braids, ponytails, updos</span>
+							<ul>
+								<div id="sheet_hair_half_up"></div>
+								<div id="sheet_hair_bangs_bun"></div>
+								<div id="sheet_hair_shortknot"></div>
+								<div id="sheet_hair_longknot"></div>
+								<div id="sheet_hair_ponytail"></div>
+								<div id="sheet_hair_ponytail2"></div>
+								<div id="sheet_hair_high_ponytail"></div>
+								<div id="sheet_hair_braid"></div>
+								<div id="sheet_hair_braid2"></div>
+								<div id="sheet_hair_shoulderl"></div>
+								<div id="sheet_hair_shoulderr"></div>
+								<div id="sheet_hair_long_tied"></div>
+							</ul>
+						</li>
+						<li><span class="condensed">long</span>
+							<ul>
+								<div id="sheet_hair_loose"></div>
+								<div id="sheet_hair_bangslong"></div>
+								<div id="sheet_hair_bangslong2"></div>
+								<div id="sheet_hair_long"></div>
+								<div id="sheet_hair_long_messy"></div>
+								<div id="sheet_hair_long_messy2"></div>
+								<div id="sheet_hair_curtains_long"></div>
+								<div id="sheet_hair_wavy"></div>
+								<div id="sheet_hair_long_center_part"></div>
+							</ul>
+						</li>
+						<li><span class="condensed">very long</span>
+							<ul>
+								<div id="sheet_hair_princess"></div>
+								<div id="sheet_hair_sara"></div>
+								<div id="sheet_hair_long_band"></div>
+								<div id="sheet_hair_xlong"></div>
+							</ul>
+						</li>
+					</ul>
+				</li>
+
+				<!-- Head coverings (under hat) -->
+				<li>
+					<span class="condensed">Head coverings</span>
+					<ul>
+						<div id="sheet_head_bandana"></div>
+						<div id="sheet_head_bandana_skull"></div>
+						<div id="sheet_head_kerchief"></div>
+						<div id="sheet_head_band_tied"></div>
+						<div id="sheet_hat_helmet_mail"></div>
+					</ul>
+				</li>
+
+				<!-- Hats -->
+				<li>
+					<span class="condensed">Hats and Helmets</span>
+					<ul>
+
+						<div id="sheet_hat_formal"></div>
+						<div id="sheet_hat_reptile"></div>
+						<div id="sheet_hat_magic"></div>
+						<div id="sheet_hat_cloth"></div>
+
+						<li>
+							<span class="condensed">Helmets</span>
+							<ul>
+								<div id="sheet_hat_helmet_armet"></div>
+								<div id="sheet_hat_helmet_armet_simple"></div>
+								<div id="sheet_hat_helmet_barbarian"></div>
+								<div id="sheet_hat_helmet_barbarian_nasal"></div>
+								<div id="sheet_hat_helmet_barbarian_viking"></div>
+								<div id="sheet_hat_helmet_barbuta"></div>
+								<div id="sheet_hat_helmet_barbuta_simple"></div>
+								<div id="sheet_hat_helmet_bascinet"></div>
+								<div id="sheet_hat_helmet_bascinet_pigface"></div>
+								<!-- <div id="sheet_hat_helmet_bascinet_raised"></div> -->
+								<div id="sheet_hat_helmet_close"></div>
+								<div id="sheet_hat_helmet_flattop"></div>
+								<div id="sheet_hat_helmet_greathelm"></div>
+								<div id="sheet_hat_helmet_horned"></div>
+								<div id="sheet_hat_helmet_kettle"></div>
+								<div id="sheet_hat_helmet_legion"></div>
+								<div id="sheet_hat_helmet_maximus"></div>
+								<div id="sheet_hat_helmet_morion"></div>
+								<div id="sheet_hat_helmet_nasal"></div>
+								<div id="sheet_hat_helmet_norman"></div>
+								<div id="sheet_hat_helmet_spangenhelm"></div>
+								<div id="sheet_hat_helmet_spangenhelm_viking"></div>
+								<div id="sheet_hat_helmet_sugarloaf"></div>
+								<div id="sheet_hat_helmet_sugarloaf_simple"></div>
+								<div id="sheet_hat_helmet_xeon"></div>
+							</ul>
+						</li>
+						<li>
+							<span class="condensed">Visors</span>
+							<ul>
+								<div id="sheet_hat_visor_grated"></div>
+								<div id="sheet_hat_visor_grated_narrow"></div>
+								<div id="sheet_hat_visor_horned"></div>
+								<div id="sheet_hat_visor_pigface"></div>
+								<div id="sheet_hat_visor_pigface_raised"></div>
+								<div id="sheet_hat_visor_round"></div>
+								<div id="sheet_hat_visor_round_raised"></div>
+								<div id="sheet_hat_visor_slit"></div>
+								<div id="sheet_hat_visor_slit_narrow"></div>
+							</ul>
+						</li>
+						<li>
+							<span class="condensed">Pirate hats</span>
+							<ul>
+								<div id="sheet_hat_pirate_bonnie"></div>
+								<div id="sheet_hat_pirate_bonnie_feather"></div>
+								<div id="sheet_hat_pirate_cavalier"></div>
+								<div id="sheet_hat_pirate_cavalier_feather"></div>
+								<div id="sheet_hat_pirate_tricorne"></div>
+								<div id="sheet_hat_pirate_tricorne_stitched"></div>
+								<div id="sheet_hat_pirate_tricorne_thatch"></div>
+								<div id="sheet_hat_pirate_tricorne_captain_pirate"></div>
+								<div id="sheet_hat_pirate_tricorne_lieutenant"></div>
+								<div id="sheet_hat_pirate_tricorne_captain"></div>
+								<div id="sheet_hat_pirate_bicorne_athwart"></div>
+								<div id="sheet_hat_pirate_bicorne_athwart_pirate"></div>
+								<div id="sheet_hat_pirate_bicorne_athwart_admiral"></div>
+								<div id="sheet_hat_pirate_bicorne_athwart_admiral_cockade"></div>
+								<div id="sheet_hat_pirate_bicorne_athwart_commodore"></div>
+								<div id="sheet_hat_pirate_bicorne_foreaft"></div>
+								<div id="sheet_hat_pirate_bicorne_foreaft_commodore"></div>
+							</ul>
+						</li>
+						<li>
+							<span class="condensed">Hat Accessories</span>
+							<ul>
+								<div id="sheet_hat_accessory_crest"></div>
+								<div id="sheet_hat_accessory_crest_centurion"></div>
+								<div id="sheet_hat_accessory_wings"></div>
+								<div id="sheet_hat_accessory_horns"></div>
+								<div id="sheet_hat_accessory_plumage"></div>
+								<div id="sheet_hat_accessory_plumage_centurion"></div>
+								<div id="sheet_hat_accessory_plumage_legion"></div>
+							</ul>
+						</li>
+						<li>
+							<span class="condensed">Crowns</span>
+							<ul>
+								<div id="sheet_hat_crown"></div>
+								<div id="sheet_hat_tiara"></div>
+							</ul>
+						</li>
+						<li>
+							<span class="condensed">Special</span>
+							<ul>
+								<div id="sheet_hat_santa"></div>
+								<div id="sheet_hat_elf"></div>
+							</ul>
+						</li>
+					</ul>
+				</li>
+
+
+				<!-- Facial accessories -->
+				<li data-required="male,female,pregnant,muscular">
+					<span class="condensed">Accessories</span>
+					<ul>
+						<div id="sheet_facial"></div>
+						<div id="sheet_facial_eyepatch"></div>
+						<div id="sheet_facial_earring"></div>
+					</ul>
+				</li>
+
+				<!-- Neck -->
+				<li data-required="male,female,pregnant,muscular">
+					<span class="condensed">Neck</span>
+					<ul>
+						<div id="sheet_neck_tie"></div>
+						<div id="sheet_neck_scarf"></div>
+						<div id="sheet_neck_capeclip"></div>
+						<div id="sheet_neck_capetie"></div>
+						<div id="sheet_neck_jabot"></div>
+						<div id="sheet_neck_cravat"></div>
+						<div id="sheet_necklace"></div>
+					</ul>
+				</li>
+			</ul>
+			<h3>Arms</h3>
+			<ul>
+				<!-- ARMS -->
+
+				<!-- Shoulders -->
+				<li data-required="male,female,pregnant,muscular">
+					<span class="condensed">Shoulders</span>
+					<ul>
+						<div id="sheet_shoulders_legion"></div>
+						<div id="sheet_shoulders_plate"></div>
+						<div id="sheet_shoulders_leather"></div>
+						<div id="sheet_shoulders_epaulets"></div>
+						<div id="sheet_shoulders_mantal"></div>
+					</ul>
+				</li>
+
+				<!-- Arms -->
+				<div id="sheet_arms"></div>
+
+				<!-- Bauldron -->
+				<div id="sheet_bauldron"></div>
+
+				<!-- Bracers -->
+				<li data-required="male,female,pregnant,muscular">
+					<span class="condensed">Wrists</span>
+					<ul>
+						<div id="sheet_bracers"></div>
+						<div id="sheet_wrists_cuffs"></div>
+						<div id="sheet_wrists_cuffs_lace"></div>
+					</ul>
+				</li>
+
+				<!-- Greaves -->
+				<div id="sheet_gloves"></div>
+
+			</ul>
+			<!-- TORSO -->
+			<h3>Torso</h3>
+			<ul>
+
+				<!-- Dress -->
+				<div id="sheet_dress"></div>
+
+				<!-- Torso clothes -->
+				<li data-required="male,female,pregnant,child">
+					<span class="condensed">Shirts</span>
+					<ul>
+						<div id="sheet_torso_clothes_child_shirt"></div>
+						<div id="sheet_torso_clothes_male_longsleeve"></div>
+						<div id="sheet_torso_clothes_male_longsleeve_laced"></div>
+						<div id="sheet_torso_clothes_male_sleeveless"></div>
+						<div id="sheet_torso_clothes_male_sleeveless_laced"></div>
+						<div id="sheet_torso_clothes_male_sleeveless_striped"></div>
+						<div id="sheet_torso_clothes_tanktop"></div>
+						<div id="sheet_torso_clothes_female_sleeveless"></div>
+						<div id="sheet_torso_clothes_corset"></div>
+						<div id="sheet_torso_clothes_blouse"></div>
+						<div id="sheet_torso_clothes_blouse_longsleeve"></div>
+						<div id="sheet_torso_clothes_scoop_shirt"></div>
+						<div id="sheet_torso_clothes_female_longsleeve"></div>
+						<div id="sheet_torso_clothes_tunic"></div>
+						<div id="sheet_torso_clothes_robe"></div>
+					</ul>
+				</li>
+
+				<!-- Apron -->
+				<div id="sheet_torso_clothes_apron"></div>
+
+				<!-- Bandages -->
+				<div id="sheet_torso_bandages"></div>
+
+				<!-- Chainmail -->
+				<div id="sheet_torso_chainmail"></div>
+
+				<!-- Jackets -->
+				<li data-required="male,female">
+					<span class="condensed">Jacket</span>
+					<ul>
+						<div id="sheet_torso_jacket_collared"></div>
+						<div id="sheet_torso_jacket_iverness"></div>
+						<div id="sheet_torso_jacket_trench"></div>
+						<div id="sheet_torso_jacket_male_tabard"></div>
+						<div id="sheet_torso_jacket_female_tabard"></div>
+						<div id="sheet_torso_jacket_frock"></div>
+						<div id="sheet_torso_jacket_santa"></div>
+						<li>
+							<span class="condensed">Jacket trim</span>
+							<ul>
+								<div id="sheet_torso_jacket_frock_collar"></div>
+								<div id="sheet_torso_jacket_frock_lace"></div>
+								<div id="sheet_torso_jacket_frock_lapel"></div>
+								<div id="sheet_torso_jacket_frock_buttons"></div>
+								<div id="sheet_torso_jacket_pockets"></div>
+							</ul>
+						</li>
+					</ul>
+				</li>
+
+				<!-- Vest -->
+				<li data-required="male,female">
+					<span class="condensed">Vest</span>
+					<ul>
+						<div id="sheet_torso_clothes_vest"></div>
+						<div id="sheet_torso_clothes_vest_open"></div>
+					</ul>
+				</li>
+
+				<!-- Armour -->
+				<li data-required="male,female">
+					<span class="condensed">Armour</span>
+					<ul>
+						<div id="sheet_torso_armour_plate"></div>
+						<div id="sheet_torso_armour_leather"></div>
+						<div id="sheet_torso_armour_legion"></div>
+					</ul>
+				</li>
+
+				<!-- Cape -->
+				<li data-required="male,female,pregnant,muscular">
+					<span class="condensed">Cape</span>
+					<ul>
+						<div id="sheet_cape_solid"></div>
+						<div id="sheet_cape_trimmed"></div>
+						<div id="sheet_cape_tattered"></div>
+					</ul>
+				</li>
+
+				<!-- Belt -->
+				<li data-required="male,female">
+					<span class="condensed">Waist</span>
+					<ul>
+						<div id="sheet_belt_leather"></div>
+						<div id="sheet_belt_double"></div>
+						<div id="sheet_belt_loose"></div>
+						<div id="sheet_belt_belly"></div>
+						<div id="sheet_belt_other_female"></div>
+						<div id="sheet_belt_other_male"></div>
+						<div id="sheet_belt_sash"></div>
+						<div id="sheet_belt_sash_narrow"></div>
+					</ul>
+				</li>
+
+				<!-- Buckles -->
+				<div id="sheet_buckles"></div>
+
+
+			</ul>
+			<h3>Legs</h3>
+			<ul>
+				<!-- LEGS -->
+
+				<!-- Legs -->
+				<li>
+					<span class="condensed">Legs</span>
+					<ul>
+						<div id="sheet_legs_armour"></div>
+						<div id="sheet_legs_widepants"></div>
+						<div id="sheet_legs_pants"></div>
+						<div id="sheet_legs_pantaloons"></div>
+						<div id="sheet_legs_leggings"></div>
+						<div id="sheet_legs_pregnantpants"></div>
+						<div id="sheet_legs_childpants"></div>
+						<div id="sheet_legs_childskirts"></div>
+						<div id="sheet_legs_skirts"></div>
+					</ul>
+				</li>
+
+				<!-- FEET -->
+
+				<!-- Boots -->
+				<div id="sheet_feet_boots"></div>
+
+				<!-- Shoes -->
+				<li data-required="male,female,muscular,pregnant">
+					<span class="condensed">Shoes</span>
+					<ul>
+						<div id="sheet_feet_armour"></div>
+						<div id="sheet_feet_slippers"></div>
+						<div id="sheet_feet_shoes"></div>
+						<div id="sheet_feet_hoofs"></div>
+						<div id="sheet_feet_sandals"></div>
+						<div id="sheet_feet_sara"></div>
+					</ul>
+				</li>
+
+			</ul>
+			<h3>Weapons</h3>
+			<ul>
+				<!-- WEAPONS -->
+
+				<!-- Shield -->
+				<div id="sheet_shield"></div>
+
+				<!-- Quiver -->
+				<div id="sheet_quiver"></div>
+
+				<!-- Weapons -->
+				<li>
+					<span class="condensed">Weapon</span>
+					<ul>
+						<div id="sheet_weapon_bow"></div>
+						<div id="sheet_weapon_thrust"></div>
+						<div id="sheet_weapon_slash"></div>
+						<div id="sheet_weapon_thrust_oversize"></div>
+						<div id="sheet_weapon_slash_oversize"></div>
+						<div id="sheet_weapon_slash_oversize_layered"></div>
+						<div id="sheet_weapon_thrust_oversize_attack_only"></div>
+					</ul>
+				</li>
+
+				<!-- Ammo -->
+				<div id="sheet_ammo"></div>
+
+			</ul>
+		</section>
+	</form>
 	<section id="preview">
+		<div id="previewAnimationsBox">
+			Preview
+			<select id="whichAnim">
+				<option value="spellcast" data-row="0" data-num="4" data-cycle="7">Spellcast</option>
+				<option value="thrust" data-row="4" data-num="4" data-cycle="8">Thrust</option>
+				<option value="walk" selected data-row="8" data-num="4" data-cycle="9">Walk</option>
+				<option value="slash" data-row="12" data-num="4" data-cycle="6">Slash</option>
+				<option value="shoot" data-row="16" data-num="4" data-cycle="13">Shoot</option>
+				<option value="hurt" data-row="20" data-num="1" data-cycle="6">Hurt</option>
+				<option value="smash" data-row="12" data-num="4" data-cycle="4">Smash</option>
+			</select>
+			<canvas id="previewAnimations" width="1024" height="192"></canvas>
+		</div>
+
+		<div class="instr">Complete sprite sheet (click to zoom): </div>
 		<canvas id="spritesheet" width="832" height="1344">HTML5 Browser required.</canvas>
-	</section>]
+	</section>
+	<div id="credits" style="display:hidden">
+		<h2>Credits</h2>
+		<p>This art is available under the <a href="http://www.gnu.org/licenses/gpl-3.0.html">GNU GPL 3.0</a> and/or <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA 3.0</a> licenses.
+			You must credit the authors. <a href="https://github.com/sanderfrenken/Universal-LPC-Spritesheet-Character-Generator/blob/master/README.md">Detailed attribution instructions</a>. </p>
+		<p><strong>Download: </strong>
+			<button type="button" class="generateSheetCreditsTxt">Credits for this sheet</button>
+			<button type="button" class="generateSheetCreditsCsv">Credits for this sheet (CSV)</button>
+			<button type="button" class="generateAllCredits">Credits for all sprites (CSV)</button>
+		</p>
+		<p>Authors of this spritesheet:</p>
+		<textarea id="creditsText" rows="20" cols="300" readonly>Credits</textarea>
+	</div>
+	<div id="advanced" style="display:hidden">
+		<h2>Advanced Tools</h2>
+		<p>
+			<strong>Custom file: </strong><span>Draw local file with custom z-position:</span>
+			<input type="file" id="previewFile">
+			<label for="ZPOS">Z-position:</label><input id="ZPOS" type="text" name="ZPOS">
+		</p>
+		<p>
+			<strong>Custom animation: </strong><span>Define custom sequence of frames for the selected animation. First frame is 0, e.g.: '3, 5, 3, 0'.</span>
+			<input id="customFrames" type="text" name="customFrames">custom frames<br>
+		</p>
+	</div>
 </body>
 
 </html>
